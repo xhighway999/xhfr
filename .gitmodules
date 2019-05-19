@@ -1,0 +1,9 @@
+[submodule "external/imgui"]
+	path = external/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "external/sol2"]
+	path = external/sol2
+	url = https://github.com/ThePhD/sol2.git
+[submodule "external/luajit"]
+	path = external/luajit
+	url = http://luajit.org/git/luajit-2.0.git
