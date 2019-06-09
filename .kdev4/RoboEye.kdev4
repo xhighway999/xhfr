@@ -3,12 +3,12 @@ Build Directory Count=1
 Current Build Directory Index-Host System=0
 
 [CMake][CMake Build Directory 0]
-Build Directory Path=/home/quentin/Projects/RoboEye/build
-Build Type=Release
-CMake Binary=/bin/cmake
-CMake Executable=/bin/cmake
+Build Directory Path=/home/quentin/Projects/roboeye/build
+Build Type=
+CMake Binary=/usr/bin/cmake
+CMake Executable=/usr/bin/cmake
 Environment Profile=
-Extra Arguments=-DCMAKE_CXX_FLAGS="-Os"
+Extra Arguments=
 Install Directory=/usr/local
 Runtime=Host System
 
@@ -26,15 +26,27 @@ Arguments=
 Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
 Dependency Action=Nothing
 EnvironmentGroup=
-Executable=file:///home/quentin/Projects/RoboEye/build/src/roboeye
+Executable=file:///home/quentin/Projects/roboeye/build/src/roboeye
 External Terminal=konsole --noclose --workdir %workdir -e %exe
-Project Target=
+Project Target=RoboEye,src,roboeye
 Use External Terminal=false
 Working Directory=
 isExecutable=true
+
+[MakeBuilder]
+Make Binary=ninja
 
 [Project]
 VersionControlSupport=kdevgit
 
 [SourceFileTemplates]
 LastUsedTemplate=/home/quentin/.local/share/kdevfiletemplates/template_descriptions/cpp_basic.desktop
+
+[SourceFormatter]
+text/x-c++hdr=kdevastyle||1TBS
+text/x-c++src=kdevastyle||1TBS
+text/x-chdr=kdevastyle||1TBS
+text/x-csharp=kdevastyle||1TBS
+text/x-csrc=kdevastyle||1TBS
+text/x-java=kdevastyle||1TBS
+text/x-objcsrc=kdevastyle||1TBS

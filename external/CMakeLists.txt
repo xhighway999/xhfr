@@ -1,6 +1,7 @@
  
  
 include(cmakescripts/imgui.cmake)
+include(cmakescripts/glfw.cmake)
 
 add_subdirectory(stb)
 add_subdirectory(sol2)
