@@ -2,6 +2,7 @@
 #define FILTERAPP_H
 
 #include <string>
+#include <sol2/include/sol/sol.hpp>
 #include "imgui/imgui.h"
 
 /**

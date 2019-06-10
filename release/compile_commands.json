@@ -1,0 +1,241 @@
+[
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1 -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUAJIT_TARGET=LUAJIT_ARCH_x64 -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/minilua.dir/luajit/src/host/minilua.c.o   -c /home/quentin/Projects/roboeye/external/luajit/src/host/minilua.c",
+  "file": "/home/quentin/Projects/roboeye/external/luajit/src/host/minilua.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/g++  -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -std=gnu++17 -o external/CMakeFiles/imgui.dir/imgui/imgui.cpp.o -c /home/quentin/Projects/roboeye/external/imgui/imgui.cpp",
+  "file": "/home/quentin/Projects/roboeye/external/imgui/imgui.cpp"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/g++  -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -std=gnu++17 -o external/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.o -c /home/quentin/Projects/roboeye/external/imgui/imgui_demo.cpp",
+  "file": "/home/quentin/Projects/roboeye/external/imgui/imgui_demo.cpp"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/g++  -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -std=gnu++17 -o external/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.o -c /home/quentin/Projects/roboeye/external/imgui/imgui_draw.cpp",
+  "file": "/home/quentin/Projects/roboeye/external/imgui/imgui_draw.cpp"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/g++  -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -std=gnu++17 -o external/CMakeFiles/imgui.dir/imgui/imgui_widgets.cpp.o -c /home/quentin/Projects/roboeye/external/imgui/imgui_widgets.cpp",
+  "file": "/home/quentin/Projects/roboeye/external/imgui/imgui_widgets.cpp"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/luajit-static.dir/luajit/src/ljamalg.c.o   -c /home/quentin/Projects/roboeye/external/luajit/src/ljamalg.c",
+  "file": "/home/quentin/Projects/roboeye/external/luajit/src/ljamalg.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I/usr/include -I../external/glfw/include  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/luajit-static.dir/lj_vm.S.o -c /home/quentin/Projects/roboeye/release/external/lj_vm.S",
+  "file": "/home/quentin/Projects/roboeye/release/external/lj_vm.S"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Dluajit_EXPORTS -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/luajit.dir/luajit/src/luajit.c.o   -c /home/quentin/Projects/roboeye/external/luajit/src/luajit.c",
+  "file": "/home/quentin/Projects/roboeye/external/luajit/src/luajit.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Dluajit_EXPORTS -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/luajit.dir/luajit/src/ljamalg.c.o   -c /home/quentin/Projects/roboeye/external/luajit/src/ljamalg.c",
+  "file": "/home/quentin/Projects/roboeye/external/luajit/src/ljamalg.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Dluajit_EXPORTS -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I/usr/include -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/luajit.dir/lj_vm.S.o -c /home/quentin/Projects/roboeye/release/external/lj_vm.S",
+  "file": "/home/quentin/Projects/roboeye/release/external/lj_vm.S"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1 -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUAJIT_TARGET=LUAJIT_ARCH_x64 -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/buildvm.dir/luajit/src/host/buildvm.c.o   -c /home/quentin/Projects/roboeye/external/luajit/src/host/buildvm.c",
+  "file": "/home/quentin/Projects/roboeye/external/luajit/src/host/buildvm.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1 -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUAJIT_TARGET=LUAJIT_ARCH_x64 -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/buildvm.dir/luajit/src/host/buildvm_asm.c.o   -c /home/quentin/Projects/roboeye/external/luajit/src/host/buildvm_asm.c",
+  "file": "/home/quentin/Projects/roboeye/external/luajit/src/host/buildvm_asm.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1 -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUAJIT_TARGET=LUAJIT_ARCH_x64 -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/buildvm.dir/luajit/src/host/buildvm_peobj.c.o   -c /home/quentin/Projects/roboeye/external/luajit/src/host/buildvm_peobj.c",
+  "file": "/home/quentin/Projects/roboeye/external/luajit/src/host/buildvm_peobj.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1 -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUAJIT_TARGET=LUAJIT_ARCH_x64 -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/buildvm.dir/luajit/src/host/buildvm_lib.c.o   -c /home/quentin/Projects/roboeye/external/luajit/src/host/buildvm_lib.c",
+  "file": "/home/quentin/Projects/roboeye/external/luajit/src/host/buildvm_lib.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLJ_ABI_SOFTFP=0 -DLJ_ARCH_HASFPU=1 -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUAJIT_TARGET=LUAJIT_ARCH_x64 -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/buildvm.dir/luajit/src/host/buildvm_fold.c.o   -c /home/quentin/Projects/roboeye/external/luajit/src/host/buildvm_fold.c",
+  "file": "/home/quentin/Projects/roboeye/external/luajit/src/host/buildvm_fold.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Dlibluajit_EXPORTS -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/libluajit.dir/luajit/src/ljamalg.c.o   -c /home/quentin/Projects/roboeye/external/luajit/src/ljamalg.c",
+  "file": "/home/quentin/Projects/roboeye/external/luajit/src/ljamalg.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Dlibluajit_EXPORTS -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I/usr/include -I../external/glfw/include  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/CMakeFiles/libluajit.dir/lj_vm.S.o -c /home/quentin/Projects/roboeye/release/external/lj_vm.S",
+  "file": "/home/quentin/Projects/roboeye/release/external/lj_vm.S"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/g++  -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/stb/stb  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -std=gnu++17 -o external/stb/CMakeFiles/stb.dir/stb.cpp.o -c /home/quentin/Projects/roboeye/external/stb/stb.cpp",
+  "file": "/home/quentin/Projects/roboeye/external/stb/stb.cpp"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/stb/stb  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/stb/CMakeFiles/stb.dir/stb/stb_vorbis.c.o   -c /home/quentin/Projects/roboeye/external/stb/stb/stb_vorbis.c",
+  "file": "/home/quentin/Projects/roboeye/external/stb/stb/stb_vorbis.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -Wdeclaration-after-statement -o external/glfw/src/CMakeFiles/glfw.dir/context.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/context.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/context.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -Wdeclaration-after-statement -o external/glfw/src/CMakeFiles/glfw.dir/init.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/init.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/init.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -Wdeclaration-after-statement -o external/glfw/src/CMakeFiles/glfw.dir/input.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/input.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/input.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -Wdeclaration-after-statement -o external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/monitor.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/monitor.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -Wdeclaration-after-statement -o external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/vulkan.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/vulkan.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -Wdeclaration-after-statement -o external/glfw/src/CMakeFiles/glfw.dir/window.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/window.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/window.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -o external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/x11_init.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/x11_init.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -o external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/x11_monitor.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/x11_monitor.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -o external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/x11_window.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/x11_window.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -o external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/xkb_unicode.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/xkb_unicode.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -o external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/posix_time.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/posix_time.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -o external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/posix_thread.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/posix_thread.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -o external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/glx_context.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/glx_context.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -o external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/egl_context.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/egl_context.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -o external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/osmesa_context.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/osmesa_context.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_GLFW_USE_CONFIG_H -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/glfw/src -Iexternal/glfw/src  -Os -DNDEBUG -fPIC   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -Wall -o external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o   -c /home/quentin/Projects/roboeye/external/glfw/src/linux_joystick.c",
+  "file": "/home/quentin/Projects/roboeye/external/glfw/src/linux_joystick.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/gcc -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -Iexternal/glad/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -o external/glad/CMakeFiles/glad.dir/src/glad.c.o   -c /home/quentin/Projects/roboeye/release/external/glad/src/glad.c",
+  "file": "/home/quentin/Projects/roboeye/release/external/glad/src/glad.c"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/g++  -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/imgui_impl/PUBLIC -I../external/imgui_impl/imgui_impl -Iexternal/glad/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -std=gnu++17 -o external/imgui_impl/CMakeFiles/imgui_impl.dir/imgui_impl_glfw.cpp.o -c /home/quentin/Projects/roboeye/external/imgui_impl/imgui_impl_glfw.cpp",
+  "file": "/home/quentin/Projects/roboeye/external/imgui_impl/imgui_impl_glfw.cpp"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/g++  -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DLUAJIT_CPU_SSE2 -DLUAJIT_ENABLE_GC64 -DLUAJIT_ENABLE_LUA52COMPAT -DLUA_MULTILIB=\\\"lib\\\" -DLUA_USE_READLINE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I../external/src -I../external/dynasm -Iexternal -I../PUBLIC -I../external -I../external/imgui -I../external/PUBLIC -I../external/LuaJIT -I../external/public -I../external/luajit/src -I../external/glfw/include -I../external/imgui_impl/PUBLIC -I../external/imgui_impl/imgui_impl -Iexternal/glad/include  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -std=gnu++17 -o external/imgui_impl/CMakeFiles/imgui_impl.dir/imgui_impl_opengl3.cpp.o -c /home/quentin/Projects/roboeye/external/imgui_impl/imgui_impl_opengl3.cpp",
+  "file": "/home/quentin/Projects/roboeye/external/imgui_impl/imgui_impl_opengl3.cpp"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/g++  -DIMGUI_IMPL_OPENGL_LOADER_GLAD -I../PUBLIC -I../external -I../src/../external/luajit/src -I../external/sol2/include -I../external/imgui_impl/imgui_impl -Iexternal/glad/include -I../external/glfw/include -I../external/stb/stb  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -std=gnu++17 -o src/CMakeFiles/binary.dir/main.cpp.o -c /home/quentin/Projects/roboeye/src/main.cpp",
+  "file": "/home/quentin/Projects/roboeye/src/main.cpp"
+},
+
+{
+  "directory": "/home/quentin/Projects/roboeye/release",
+  "command": "/usr/bin/g++   -I../PUBLIC -I../external  -Os -DNDEBUG   -Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -std=gnu++17 -o src/gui/CMakeFiles/gui.dir/Image.cpp.o -c /home/quentin/Projects/roboeye/src/gui/Image.cpp",
+  "file": "/home/quentin/Projects/roboeye/src/gui/Image.cpp"
+}
+]

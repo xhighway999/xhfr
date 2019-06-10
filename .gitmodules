@@ -8,6 +8,7 @@
 [submodule "external/luajit"]
 	path = external/luajit
 	url = http://luajit.org/git/luajit-2.0.git
+	branch = v.2.1
 [submodule "external/glfw"]
 	path = external/glfw
 	url = https://github.com/glfw/glfw.git

@@ -1,6 +1,9 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\x0e\x00R\x00o\x00b\x00o\x00E\x00y\x00e)
+
 [CMake]
-Build Directory Count=1
-Current Build Directory Index-Host System=0
+Build Directory Count=2
+Current Build Directory Index-Host System=1
 
 [CMake][CMake Build Directory 0]
 Build Directory Path=/home/quentin/Projects/roboeye/build
@@ -9,6 +12,16 @@ CMake Binary=/usr/bin/cmake
 CMake Executable=/usr/bin/cmake
 Environment Profile=
 Extra Arguments=
+Install Directory=/usr/local
+Runtime=Host System
+
+[CMake][CMake Build Directory 1]
+Build Directory Path=/home/quentin/Projects/roboeye/release
+Build Type=RelWithDebInfo
+CMake Binary=/usr/bin/cmake
+CMake Executable=/usr/bin/cmake
+Environment Profile=
+Extra Arguments=-G "Ninja"
 Install Directory=/usr/local
 Runtime=Host System
 
@@ -26,7 +39,7 @@ Arguments=
 Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
 Dependency Action=Nothing
 EnvironmentGroup=
-Executable=file:///home/quentin/Projects/roboeye/build/src/roboeye
+Executable=file:///home/quentin/Projects/roboeye/release/src/binary-tiny
 External Terminal=konsole --noclose --workdir %workdir -e %exe
 Project Target=RoboEye,src,roboeye
 Use External Terminal=false
