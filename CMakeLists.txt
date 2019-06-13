@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-option(TinyMode "TinyMode" OFF)
+option(TinyMode "Tiny Mode" OFF)
 option(DevMode "Developer Mode" OFF)
 
 set (CMAKE_CXX_STANDARD 17)
