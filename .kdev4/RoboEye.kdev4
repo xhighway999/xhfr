@@ -3,11 +3,11 @@ BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x
 
 [CMake]
 Build Directory Count=2
-Current Build Directory Index-Host System=1
+Current Build Directory Index-Host System=0
 
 [CMake][CMake Build Directory 0]
 Build Directory Path=/home/quentin/Projects/roboeye/build
-Build Type=
+Build Type=Debug
 CMake Binary=/usr/bin/cmake
 CMake Executable=/usr/bin/cmake
 Environment Profile=
@@ -26,22 +26,32 @@ Install Directory=/usr/local
 Runtime=Host System
 
 [Launch]
-Launch Configurations=Launch Configuration 0
+Launch Configurations=Launch Configuration 1
 
-[Launch][Launch Configuration 0]
+[Launch][Launch Configuration 1]
 Configured Launch Modes=execute
 Configured Launchers=nativeAppLauncher
-Name=New Compiled Binary Launcher
+Name=Debug
 Type=Native Application
 
-[Launch][Launch Configuration 0][Data]
+[Launch][Launch Configuration 1][Data]
 Arguments=
+Break on Start=false
 Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
 Dependency Action=Nothing
 EnvironmentGroup=
-Executable=file:///home/quentin/Projects/roboeye/release/src/binary-tiny
+Executable=file:///home/quentin/Projects/roboeye/build/src/binary
 External Terminal=konsole --noclose --workdir %workdir -e %exe
-Project Target=RoboEye,src,roboeye
+LLDB Arguments=
+LLDB Config Script=
+LLDB Environment=
+LLDB Executable=
+LLDB Inherit System Env=true
+LLDB Remote Debugging=false
+LLDB Remote Path=
+LLDB Remote Server=
+Project Target=RoboEye,external,buildvm
+Start With=ApplicationOutput
 Use External Terminal=false
 Working Directory=
 isExecutable=true

@@ -1,4 +1,4 @@
-/*// dear imgui: standalone example application for GLFW + OpenGL 3, using programmable pipeline
+// dear imgui: standalone example application for GLFW + OpenGL 3, using programmable pipeline
 // If you are new to dear imgui, see examples/README.txt and documentation at the top of imgui.cpp.
 // (GLFW is a cross-platform general purpose library for handling windows, inputs, OpenGL/Vulkan graphics context creation, etc.)
 
@@ -302,36 +302,4 @@ int main(int, char**)
     glfwTerminate();
 
     return 0;
-}
-*/
-/*
-extern "C" {
-
-#include <stdio.h>
-#include <lua.h>
-#include <lualib.h>
-#include <lauxlib.h>
-#include <luajit/src/luajit.h>
-}*/
-
-#include <lua.hpp>
-
-int main(int argc, char *argv[])
-{
-  int status;
-  lua_State *L;
-  
-  L = luaL_newstate(); // open Lua
-  if (!L) {
-    return -1; // Checks that Lua started up
-  }
-  
-  luaL_openlibs(L); // load Lua libraries
-  if (argc > 1) {
-    status = luaL_loadfile(L, argv[1]);  // load Lua script
-    lua_call(L, 0, 0); // tell Lua to run the script
-  }
-
-  lua_close(L); // Close Lua
-  return 0;
 }
