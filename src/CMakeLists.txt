@@ -22,3 +22,8 @@ add_custom_target(
   TinyMode ALL
   DEPENDS binary-tiny
 )
+if(${DevMode})
+    target_compile_definitions(binary PUBLIC DEV)
+    #Link the dev tools dependency
+    target_link_libraries(binary devtools)
+endif()
