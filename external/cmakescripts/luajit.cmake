@@ -10,6 +10,8 @@ add_custom_command(OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/luajit/src/libluajit.a
                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/luajit
 )
 
+message(${CMAKE_CURRENT_SOURCE_DIR}/luajit/src/libluajit.a)
+
 add_custom_target(
     luajit-static
     DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/luajit/src/libluajit.a

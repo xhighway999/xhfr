@@ -1,7 +1,6 @@
 project(imgui)
 cmake_minimum_required(VERSION 2.6)
 
-include_directories(imgui PUBLIC imgui)
 
 add_library(imgui STATIC
     imgui/imconfig.h
@@ -15,3 +14,5 @@ add_library(imgui STATIC
     imgui/imgui_draw.cpp
     imgui/imgui_widgets.cpp
 )
+
+target_include_directories(imgui PUBLIC imgui)

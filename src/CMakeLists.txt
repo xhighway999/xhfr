@@ -1,14 +1,15 @@
-project(binary)
+project(core)
 
 #add_subdirectory(gui)
 
 
 
-add_executable(binary 
-    main.cpp
-    FilterApp.cpp)
-target_link_libraries(binary dl sol2 imgui imgui_impl glfw glad stb ${CMAKE_CURRENT_SOURCE_DIR}/../external/luajit/src/libluajit.a)
-target_include_directories(binary PUBLIC ../external/luajit/src/)
+add_library(core STATIC
+    core.hpp
+    core.cpp)
+target_link_libraries(core dl sol2 imgui imgui_impl glfw glad stb ${CMAKE_CURRENT_SOURCE_DIR}/../external/luajit/src/libluajit.a)
+target_include_directories(core PUBLIC ../external/luajit/src/)
+#[[
 if(${TinyMode})
     #run upx and strip after build
     add_custom_command(
@@ -24,10 +25,12 @@ if(${TinyMode})
     DEPENDS binary-tiny
     )
 endif()
+]]
 
+target_include_directories(core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 if(${DevMode})
-    target_compile_definitions(binary PUBLIC DEV)
+    target_compile_definitions(core PUBLIC DEV)
     #Link the dev tools dependency
-    target_link_libraries(binary devtools)
+    target_link_libraries(core devtools)
 endif()
