@@ -32,8 +32,11 @@
 #pragma comment(lib, "legacy_stdio_definitions")
 #endif
 
+#include "WindowManagerBase.hpp"
+
 namespace core {
     int init();
     int main();
-    extern GLFWwindow* window;
+    // All the evil globals that are required
+    extern GLFWwindow* window; //temporary
 }

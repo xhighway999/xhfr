@@ -7,6 +7,7 @@ static void glfw_error_callback(int error, const char* description)
 }
 
 GLFWwindow * core::window;
+core::WindowManagerBase* core::wm;
 
 void setupTheme()
 {
@@ -255,7 +256,9 @@ int core::main()
 
     glfwDestroyWindow(window);
     glfwTerminate();
-
+    
+    delete wm;
+    
     return 0;
 }
 

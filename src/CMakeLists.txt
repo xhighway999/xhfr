@@ -6,7 +6,12 @@ project(core)
 
 add_library(core STATIC
     core.hpp
-    core.cpp)
+    core.cpp
+    Window.hpp
+    Window.cpp
+    WindowManagerBase.hpp
+    WindowManagerImpl.hpp
+    WindowManagerImpl.cpp)
 target_link_libraries(core dl sol2 imgui imgui_impl glfw glad stb ${CMAKE_CURRENT_SOURCE_DIR}/../external/luajit/src/libluajit.a)
 target_include_directories(core PUBLIC ../external/luajit/src/)
 #[[
