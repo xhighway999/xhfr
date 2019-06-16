@@ -32,11 +32,17 @@
 #pragma comment(lib, "legacy_stdio_definitions")
 #endif
 
-#include "WindowManagerBase.hpp"
+#include "gui/WindowManagerBase.hpp"
+#include "gui/Window.hpp"
+#include "gui/WindowManagerImpl.hpp"
+#include "gui/ExtendedImgui.hpp"
+#include "gui/Dockspace.hpp"
 
 namespace core {
     int init();
     int main();
     // All the evil globals that are required
     extern GLFWwindow* window; //temporary
+    extern Dockspace dockspace;
+
 }

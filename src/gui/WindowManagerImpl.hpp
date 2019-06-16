@@ -6,16 +6,20 @@
 #include "WindowManagerBase.hpp"
 #include "Window.hpp"
 
+#include "imgui.h"
+
 namespace core {
 
 /**
  * @todo write docs
  */
-class WindowManagerImpl :  WindowManagerBase
+class WindowManagerImpl : public WindowManagerBase
 {
     public:
+    WindowManagerImpl() {};
     virtual void addWindow(Window* window) override;
     virtual void manageWindows() override;
+    virtual ~WindowManagerImpl() {}
     private:
     std::vector<Window*> windows;
 };

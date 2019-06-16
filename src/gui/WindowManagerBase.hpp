@@ -8,8 +8,10 @@ class Window;
 class WindowManagerBase
 {
 public:
-    virtual void addWindow(Window* window);
-    virtual void manageWindows();
+    WindowManagerBase() = default;
+    virtual void addWindow(Window* window) = 0;
+    virtual void manageWindows() = 0;
+    virtual ~WindowManagerBase() {}
 
 };
 extern WindowManagerBase* wm;

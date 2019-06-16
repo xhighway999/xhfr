@@ -9,9 +9,14 @@ void core::WindowManagerImpl::addWindow(core::Window* window)
 
 void core::WindowManagerImpl::manageWindows()
 {
-    for(auto* window : windows)
+    for(Window* window : windows)
     {
+        if(!window->getVisible())
+            continue;
+        
+        ImGui::Begin(window->getTitle().c_str());
         window->onDraw();
+        ImGui::End();
     }
 }
 

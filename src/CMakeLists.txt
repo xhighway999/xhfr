@@ -1,19 +1,15 @@
 project(core)
 
-#add_subdirectory(gui)
+add_subdirectory(gui)
 
 
 
 add_library(core STATIC
     core.hpp
-    core.cpp
-    Window.hpp
-    Window.cpp
-    WindowManagerBase.hpp
-    WindowManagerImpl.hpp
-    WindowManagerImpl.cpp)
-target_link_libraries(core dl sol2 imgui imgui_impl glfw glad stb ${CMAKE_CURRENT_SOURCE_DIR}/../external/luajit/src/libluajit.a)
+    core.cpp)
+target_link_libraries(core dl sol2 imgui imgui_impl glfw glad stb gui ${CMAKE_CURRENT_SOURCE_DIR}/../external/luajit/src/libluajit.a)
 target_include_directories(core PUBLIC ../external/luajit/src/)
+target_include_directories(core INTERFACE ../src)
 #[[
 if(${TinyMode})
     #run upx and strip after build
@@ -36,6 +32,4 @@ target_include_directories(core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 if(${DevMode})
     target_compile_definitions(core PUBLIC DEV)
-    #Link the dev tools dependency
-    target_link_libraries(core devtools)
 endif()

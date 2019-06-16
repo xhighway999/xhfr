@@ -6,7 +6,9 @@ cmake_minimum_required(VERSION 2.6)
 add_library(devtools STATIC
     AbstractTool.h
     AbstractTool.cpp
+    LuaTerm.hpp
+    LuaTerm.cpp
 )
 target_include_directories(devtools PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} )
 
-target_link_libraries(devtools imgui)
+target_link_libraries(devtools imgui core)

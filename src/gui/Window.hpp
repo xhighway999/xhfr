@@ -2,6 +2,8 @@
 #define CORE_WINDOW_H
 #include "WindowManagerBase.hpp"
 
+#include <string>
+
 namespace core {
 
 class Window
@@ -12,8 +14,13 @@ public:
     Window();
     virtual void onDraw() = 0;
     virtual ~Window();
+    const std::string& getTitle();
+    void setTitle(const std::string& title);
+    void setVisible(bool vis);
+    bool getVisible();
 private:
-    bool visible = true;
+    bool visible = false;
+    std::string windowTitle;
 
 };
 
