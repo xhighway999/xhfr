@@ -37,6 +37,7 @@
 #include "gui/WindowManagerImpl.hpp"
 #include "gui/ExtendedImgui.hpp"
 #include "gui/Dockspace.hpp"
+#include "gui/Widgets.hpp"
 
 namespace core {
     int init();

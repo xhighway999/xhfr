@@ -6,6 +6,8 @@ add_library(gui STATIC
     Dockspace.cpp
     ExtendedImgui.hpp
     ExtendedImgui.cpp
+    Widgets.hpp
+    Widgets.cpp
     Window.hpp
     Window.cpp
     WindowManagerBase.hpp
