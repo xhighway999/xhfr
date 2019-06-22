@@ -11,7 +11,7 @@ void core::WindowManagerImpl::manageWindows() {
     if(!window->getVisible())
       continue;
 
-    ImGui::Begin(window->getTitle().c_str());
+    ImGui::Begin(window->getTitle().c_str(), NULL, window->getFlags());
     window->onDraw();
     ImGui::End();
   }

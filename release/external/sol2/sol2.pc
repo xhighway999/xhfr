@@ -1,6 +1,0 @@
-includedir=/usr/local/include
-
-Name: sol2
-Description: C++ <-> Lua Wrapper Library
-Version: 3.0.0
-Cflags: -I${includedir}

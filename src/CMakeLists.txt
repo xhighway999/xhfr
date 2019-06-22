@@ -1,35 +1,13 @@
-project(core)
+project(xhfr)
 
 add_subdirectory(gui)
 
-
-
-add_library(core STATIC
+add_library(xhfr STATIC
     core.hpp
     core.cpp)
-target_link_libraries(core dl sol2 imgui imgui_impl glfw glad stb gui ${CMAKE_CURRENT_SOURCE_DIR}/../external/luajit/src/libluajit.a)
-target_include_directories(core PUBLIC ../external/luajit/src/)
-target_include_directories(core INTERFACE ../src)
-#[[
-if(${TinyMode})
-    #run upx and strip after build
-    add_custom_command(
-    OUTPUT binary-tiny
-    COMMAND strip -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag -s -R .comment -R .gnu.version -o binary-tiny binary
-    COMMAND upx -9 --lzma binary-tiny
-    DEPENDS binary
-    COMMENT "Stamping the license"
-    VERBATIM
-    )
-    add_custom_target(
-    TinyMode ALL
-    DEPENDS binary-tiny
-    )
-endif()
-]]
+target_link_libraries(xhfr dl sol2 imgui imgui_impl glfw glad stb gui ${CMAKE_CURRENT_SOURCE_DIR}/../external/luajit/src/libluajit.a)
+target_include_directories(xhfr PUBLIC ../external/luajit/src/)
+target_include_directories(xhfr INTERFACE ../src)
 
-target_include_directories(core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(xhfr PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-if(${DevMode})
-    target_compile_definitions(core PUBLIC DEV)
-endif()

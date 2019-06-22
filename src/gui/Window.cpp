@@ -23,3 +23,17 @@ bool core::Window::getVisible() {
 void core::Window::setVisible(bool vis) {
   visible = vis;
 }
+
+const ImGuiWindowFlags & core::Window::getFlags()
+{
+  return windowFlags;
+}
+
+void core::Window::setFlag(ImGuiWindowFlags flag, bool enabled)
+{
+  if(enabled)
+    windowFlags |= flag;
+  else
+    windowFlags = windowFlags & ~flag; 
+}
+
