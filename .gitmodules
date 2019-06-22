@@ -18,6 +18,3 @@
 [submodule "external/stb/stb"]
 	path = external/stb/stb
 	url = https://github.com/nothings/stb.git
-[submodule "ttvfs"]
-	path = ttvfs
-	url = https://github.com/fgenesis/ttvfs.git

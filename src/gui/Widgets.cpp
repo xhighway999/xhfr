@@ -1,14 +1,14 @@
 #include "Widgets.hpp"
 
 void ImGui::AutoPlot(const char *label,
-              float *newValue,
-              float *values,
-              int values_count,
-              const char *overlay_text,
-              float scale_min,
-              float scale_max,
-              ImVec2 graph_size,
-              int stride) {
+                     float *newValue,
+                     float *values,
+                     int values_count,
+                     const char *overlay_text,
+                     float scale_min,
+                     float scale_max,
+                     ImVec2 graph_size,
+                     int stride) {
   char cat[512];
   strcpy(cat, label);
   strcat(cat, "refresh_time");
