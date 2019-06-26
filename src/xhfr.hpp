@@ -42,17 +42,16 @@
 #endif
 
 #include "gui/Dockspace.hpp"
-#include "gui/ExtendedImgui.hpp"
 #include "gui/Widgets.hpp"
 #include "gui/Window.hpp"
 #include "gui/WindowManagerBase.hpp"
 #include "gui/WindowManagerImpl.hpp"
 
-namespace core {
-int init();
+namespace xhfr {
+int init(const char *appName);
 int main();
 // All the evil globals that are required
 extern GLFWwindow *window; // temporary
 extern Dockspace dockspace;
 
-} // namespace core
+} // namespace xhfr

@@ -1,10 +1,8 @@
 #include "Dockspace.hpp"
 
-core::Dockspace::Dockspace() {}
+xhfr::Dockspace::Dockspace() {}
 
-core::Dockspace::~Dockspace() {}
-
-void core::Dockspace::dockspaceStart() {
+void xhfr::Dockspace::dockspaceStart() {
   static bool opt_fullscreen_persistant     = true;
   bool opt_fullscreen                       = opt_fullscreen_persistant;
   static ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
@@ -90,6 +88,6 @@ void core::Dockspace::dockspaceStart() {
   }
 }
 
-void core::Dockspace::dockspaceEnd() {
+void xhfr::Dockspace::dockspaceEnd() {
   ImGui::End();
 }

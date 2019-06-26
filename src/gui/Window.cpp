@@ -1,34 +1,30 @@
 #include "Window.hpp"
 
-using namespace core;
-
-Window::Window() {
-  core::wm->addWindow(this);
+xhfr::Window::Window() {
+  xhfr::wm->addWindow(this);
 }
 
-Window::~Window() {}
-
-const std::string &core::Window::getTitle() {
+const std::string &xhfr::Window::getTitle() {
   return windowTitle;
 }
 
-void core::Window::setTitle(const std::string &title) {
+void xhfr::Window::setTitle(const std::string &title) {
   windowTitle = title;
 }
 
-bool core::Window::getVisible() {
+bool xhfr::Window::getVisible() {
   return visible;
 }
 
-void core::Window::setVisible(bool vis) {
+void xhfr::Window::setVisible(bool vis) {
   visible = vis;
 }
 
-const ImGuiWindowFlags &core::Window::getFlags() {
+const ImGuiWindowFlags &xhfr::Window::getFlags() {
   return windowFlags;
 }
 
-void core::Window::setFlag(ImGuiWindowFlags flag, bool enabled) {
+void xhfr::Window::setFlag(ImGuiWindowFlags flag, bool enabled) {
   if(enabled)
     windowFlags |= flag;
   else

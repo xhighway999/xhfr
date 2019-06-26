@@ -3,15 +3,14 @@
 
 #include <imgui.h>
 
-namespace core {
+namespace xhfr {
 class Dockspace {
 public:
   Dockspace();
-  ~Dockspace();
   void dockspaceStart();
   void dockspaceEnd();
   bool showDebugMenu = false;
 };
-} // namespace core
+} // namespace xhfr
 
 #endif // DOCKSPACE_H

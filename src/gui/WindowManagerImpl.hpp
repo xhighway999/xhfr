@@ -7,11 +7,8 @@
 
 #include <vector>
 
-namespace core {
+namespace xhfr {
 
-/**
- * @todo write docs
- */
 class WindowManagerImpl : public WindowManagerBase {
 public:
   WindowManagerImpl(){};
@@ -23,6 +20,6 @@ private:
   std::vector<Window *> windows;
 };
 
-} // namespace core
+} // namespace xhfr
 
 #endif // CORE_WINDOWMANAGERIMPL_H

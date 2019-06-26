@@ -1,7 +1,7 @@
 #ifndef CORE_WINDOWMANAGER_H
 #define CORE_WINDOWMANAGER_H
 
-namespace core {
+namespace xhfr {
 class Window;
 class WindowManagerBase {
 public:
@@ -11,6 +11,6 @@ public:
   virtual ~WindowManagerBase() {}
 };
 extern WindowManagerBase *wm;
-} // namespace core
+} // namespace xhfr
 
 #endif // CORE_WINDOWMANAGER_H

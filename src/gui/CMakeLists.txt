@@ -4,8 +4,6 @@ cmake_minimum_required(VERSION 2.6)
 add_library(gui STATIC
     Dockspace.hpp
     Dockspace.cpp
-    ExtendedImgui.hpp
-    ExtendedImgui.cpp
     Widgets.hpp
     Widgets.cpp
     Window.hpp

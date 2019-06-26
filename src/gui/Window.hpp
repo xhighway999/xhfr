@@ -6,7 +6,7 @@
 
 #include <string>
 
-namespace core {
+namespace xhfr {
 
 class Window {
   friend class WindowManagerBase;
@@ -14,7 +14,7 @@ class Window {
 public:
   Window();
   virtual void onDraw() = 0;
-  virtual ~Window();
+  virtual ~Window()     = default;
   const std::string &getTitle();
   void setTitle(const std::string &title);
   void setVisible(bool vis);
@@ -31,6 +31,6 @@ private:
   std::string windowTitle = "";
 };
 
-} // namespace core
+} // namespace xhfr
 
 #endif // CORE_WINDOW_H
