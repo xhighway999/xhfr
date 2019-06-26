@@ -9,23 +9,21 @@ void ImGui::AutoPlot(const char *label,
                      float scale_max,
                      ImVec2 graph_size,
                      int stride) {
-  char cat[512];
-  strcpy(cat, label);
-  strcat(cat, "refresh_time");
-  float &refresh_time =
-      *ImGui::GetStateStorage()->GetFloatRef(ImGui::GetID(cat), 0);
-  strcpy(cat, label);
-  strcat(cat, "values_offset");
-  int &values_offset =
-      *ImGui::GetStateStorage()->GetIntRef(ImGui::GetID(cat), 0);
-  if(refresh_time == 0.0)
+  
+  ImGui::PushID(label);
+  
+  ImGuiID refreshTimeId = ImGui::GetID("refresh_time");
+  ImGuiID valuesOffsetId = ImGui::GetID("values_offset");
+  double refresh_time  = ImGui::GetStateStorage()->GetFloat(refreshTimeId, ImGui::GetTime());
+  if (refresh_time == 0.0)
     refresh_time = ImGui::GetTime();
+  
+  int values_offset = ImGui::GetStateStorage()->GetInt(valuesOffsetId, 0);
   while(refresh_time < ImGui::GetTime()) {
-    static float phase    = 0.0f;
     values[values_offset] = *newValue;
     values_offset         = (values_offset + 1) % values_count;
-    phase += 0.10f * values_offset;
     refresh_time += 1.0f / 60.0f;
+    
   }
   ImGui::PlotLines(label,
                    values,
@@ -38,4 +36,8 @@ void ImGui::AutoPlot(const char *label,
                    stride);
   ImGui::SameLine();
   ImGui::Text("%f", values[values_offset - 1]);
+  ImGui::GetStateStorage()->SetFloat(refreshTimeId, refresh_time);
+  ImGui::GetStateStorage()->SetInt(valuesOffsetId, values_offset);
+  ImGui::PopID();
+  
 }

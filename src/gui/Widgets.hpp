@@ -3,7 +3,6 @@
 #include "imgui.h"
 
 #include <stdio.h>
-
 namespace ImGui {
 void AutoPlot(const char *label,
               float *newValue,
