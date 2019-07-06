@@ -272,6 +272,7 @@ int xhfr::init(const char *appName) {
   setupTheme();
   // allocate the window manager
   wm = new WindowManagerImpl();
+  return 0;
 }
 
 int xhfr::main() {
