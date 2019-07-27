@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.0)
 option(TinyMode "Tiny Mode" OFF)
 option(DevMode "Developer Mode" OFF)
 
+set(xhfr_Backend "glfw" CACHE STRING "What backend to use. Valid options: glfw, sdl ")
+
 set (CMAKE_CXX_STANDARD 17)
 
 if(${TinyMode})

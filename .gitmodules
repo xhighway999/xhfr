@@ -18,3 +18,6 @@
 [submodule "external/stb/stb"]
 	path = external/stb/stb
 	url = https://github.com/nothings/stb.git
+[submodule "external/sdl"]
+	path = external/sdl
+	url = https://github.com/spurious/SDL-mirror.git
