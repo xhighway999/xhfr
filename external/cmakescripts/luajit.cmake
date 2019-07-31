@@ -5,14 +5,20 @@
 #CONFIGURE_COMMAND "ls -l"
 #BUILD_COMMAND     ${MAKE_EXE})
 
+
+
 add_custom_command(OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/luajit/src/libluajit.a
                    COMMAND make amalg
                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/luajit
 )
 
-message(${CMAKE_CURRENT_SOURCE_DIR}/luajit/src/libluajit.a)
+message(Running script from ${CMAKE_CURRENT_SOURCE_DIR}/luajit/src/libluajit.a)
 
 add_custom_target(
     luajit-static
     DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/luajit/src/libluajit.a
 )
+add_library(luajit SHARED IMPORTED GLOBAL)
+target_include_directories(luajit SYSTEM INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/luajit/src)
+set_target_properties(luajit PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/luajit/src/libluajit.a)
+add_dependencies(luajit luajit-static)
