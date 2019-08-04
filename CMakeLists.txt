@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.14.5)
 
 option(TinyMode "Tiny Mode" OFF)
 option(DevMode "Developer Mode" OFF)
@@ -20,4 +20,3 @@ add_subdirectory(src)
 # strip -s -R .comment -R .gnu.version --strip-unneeded
 # strip -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag
 #upx -9 --lzma roboeye
-
