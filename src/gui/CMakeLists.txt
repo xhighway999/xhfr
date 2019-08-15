@@ -17,4 +17,4 @@ add_library(gui STATIC
     WindowManagerImpl.cpp
 )
 
-target_link_libraries(gui imgui glbackend)
+target_link_libraries(gui imgui stb glbackend)

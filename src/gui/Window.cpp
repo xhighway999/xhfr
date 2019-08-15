@@ -4,11 +4,11 @@ xhfr::Window::Window() {
   xhfr::wm->addWindow(this);
 }
 
-const std::string &xhfr::Window::getTitle() {
+const std::string& xhfr::Window::getTitle() {
   return windowTitle;
 }
 
-void xhfr::Window::setTitle(const std::string &title) {
+void xhfr::Window::setTitle(const std::string& title) {
   windowTitle = title;
 }
 
@@ -20,12 +20,12 @@ void xhfr::Window::setVisible(bool vis) {
   visible = vis;
 }
 
-const ImGuiWindowFlags &xhfr::Window::getFlags() {
+const ImGuiWindowFlags& xhfr::Window::getFlags() {
   return windowFlags;
 }
 
 void xhfr::Window::setFlag(ImGuiWindowFlags flag, bool enabled) {
-  if(enabled)
+  if (enabled)
     windowFlags |= flag;
   else
     windowFlags = windowFlags & ~flag;

@@ -5,12 +5,12 @@
 
 namespace xhfr {
 class Dockspace {
-public:
+ public:
   Dockspace();
   void dockspaceStart();
   void dockspaceEnd();
   bool showDebugMenu = false;
 };
-} // namespace xhfr
+}  // namespace xhfr
 
-#endif // DOCKSPACE_H
+#endif  // DOCKSPACE_H

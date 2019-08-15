@@ -4,13 +4,13 @@
 namespace xhfr {
 class Window;
 class WindowManagerBase {
-public:
-  WindowManagerBase()                    = default;
-  virtual void addWindow(Window *window) = 0;
-  virtual void manageWindows()           = 0;
+ public:
+  WindowManagerBase() = default;
+  virtual void addWindow(Window* window) = 0;
+  virtual void manageWindows() = 0;
   virtual ~WindowManagerBase() {}
 };
-extern WindowManagerBase *wm;
-} // namespace xhfr
+extern WindowManagerBase* wm;
+}  // namespace xhfr
 
-#endif // CORE_WINDOWMANAGER_H
+#endif  // CORE_WINDOWMANAGER_H

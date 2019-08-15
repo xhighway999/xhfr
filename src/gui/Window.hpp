@@ -11,26 +11,26 @@ namespace xhfr {
 class Window {
   friend class WindowManagerBase;
 
-public:
+ public:
   Window();
   virtual void onDraw() = 0;
-  virtual ~Window()     = default;
-  const std::string &getTitle();
-  void setTitle(const std::string &title);
+  virtual ~Window() = default;
+  const std::string& getTitle();
+  void setTitle(const std::string& title);
   void setVisible(bool vis);
   bool getVisible();
 
-  const ImGuiWindowFlags &getFlags();
+  const ImGuiWindowFlags& getFlags();
 
-protected:
+ protected:
   void setFlag(ImGuiWindowFlags flag, bool enabled = true);
   ImGuiWindowFlags windowFlags = 0;
 
-private:
-  bool visible            = false;
+ private:
+  bool visible = false;
   std::string windowTitle = "";
 };
 
-} // namespace xhfr
+}  // namespace xhfr
 
-#endif // CORE_WINDOW_H
+#endif  // CORE_WINDOW_H

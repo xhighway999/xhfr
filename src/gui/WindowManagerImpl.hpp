@@ -10,16 +10,16 @@
 namespace xhfr {
 
 class WindowManagerImpl : public WindowManagerBase {
-public:
+ public:
   WindowManagerImpl(){};
-  virtual void addWindow(Window *window) override;
+  virtual void addWindow(Window* window) override;
   virtual void manageWindows() override;
   virtual ~WindowManagerImpl() {}
 
-private:
-  std::vector<Window *> windows;
+ private:
+  std::vector<Window*> windows;
 };
 
-} // namespace xhfr
+}  // namespace xhfr
 
-#endif // CORE_WINDOWMANAGERIMPL_H
+#endif  // CORE_WINDOWMANAGERIMPL_H

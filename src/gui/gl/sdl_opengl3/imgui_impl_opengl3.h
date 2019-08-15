@@ -43,10 +43,10 @@
 #define IMGUI_IMPL_OPENGL_LOADER_GL3W
 #endif
 
-bool ImGui_ImplOpenGL3_Init(const char *glsl_version = nullptr);
+bool ImGui_ImplOpenGL3_Init(const char* glsl_version = nullptr);
 void ImGui_ImplOpenGL3_Shutdown();
 void ImGui_ImplOpenGL3_NewFrame();
-void ImGui_ImplOpenGL3_RenderDrawData(ImDrawData *draw_data);
+void ImGui_ImplOpenGL3_RenderDrawData(ImDrawData* draw_data);
 
 // Called by Init/NewFrame/Shutdown
 bool ImGui_ImplOpenGL3_CreateFontsTexture();
