@@ -7,6 +7,7 @@
 // creation, etc.)
 
 #include "gui/Dockspace.hpp"
+#include "gui/Image.hpp"
 #include "gui/Widgets.hpp"
 #include "gui/Window.hpp"
 #include "gui/WindowManagerBase.hpp"
@@ -14,9 +15,9 @@
 #include "gui/gl/Backend.hpp"
 
 namespace xhfr {
-int init(const char *appName);
+int init(const char* appName);
 int main();
 // All the evil globals that are required
 extern Dockspace dockspace;
 
-} // namespace xhfr
+}  // namespace xhfr

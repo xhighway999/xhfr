@@ -6,6 +6,8 @@ add_subdirectory(gl)
 add_library(gui STATIC
     Dockspace.hpp
     Dockspace.cpp
+    Image.hpp
+    Image.cpp
     Widgets.hpp
     Widgets.cpp
     Window.hpp
