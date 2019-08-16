@@ -2,7 +2,7 @@ project(gl)
 cmake_minimum_required(VERSION 2.6)
 
 
-add_library(glbackend
+add_library(glbackend STATIC
     Backend.hpp
     )
 target_compile_definitions(glbackend PRIVATE XHFR_GL_BACKEND=${BACKEND})
