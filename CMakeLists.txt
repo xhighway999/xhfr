@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.14.5)
 
-option(TinyMode "Tiny Mode" OFF)
-option(DevMode "Developer Mode" OFF)
+option(xhfr_TinyMode "Tiny Mode" OFF)
+option(xhfr_DevMode "Developer Mode" OFF)
 
 set(xhfr_Backend "glfw" CACHE STRING "What backend to use. Valid options: glfw, sdl ")
 
 set (CMAKE_CXX_STANDARD 17)
 
-if(${TinyMode})
+if(${xhfr_TinyMode})
     set(SIZE_FLAGS "-ffunction-sections -fdata-sections")
     message("Using Tiny Mode")
     add_compile_options(-Os -s -fdata-sections -ffast-math -ffunction-sections -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables)
