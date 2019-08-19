@@ -17,7 +17,7 @@
 #endif
 
 namespace xhfr {
-bool backend_init(const char* appName);
+bool backend_init(const char* appName = "xhfr", int w = 1270, int h = 800);
 void backend_render();
 void backend_new_frame();
 void backend_shutdown();

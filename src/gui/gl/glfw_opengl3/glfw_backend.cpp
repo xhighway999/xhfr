@@ -7,7 +7,7 @@ static void glfw_error_callback(int error, const char* description) {
 namespace xhfr {
 GLFWwindow* window;
 ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-bool backend_init(const char* appName) {
+bool backend_init(const char* appName, int w, int h) {
   glfwSetErrorCallback(glfw_error_callback);
   if (!glfwInit())
     return 1;
@@ -32,7 +32,7 @@ bool backend_init(const char* appName) {
 #endif
 
   // Create window with graphics context
-  window = glfwCreateWindow(1280, 720, appName, NULL, NULL);
+  window = glfwCreateWindow(w, h, appName, NULL, NULL);
   if (window == NULL)
     return 1;
   glfwMakeContextCurrent(window);
