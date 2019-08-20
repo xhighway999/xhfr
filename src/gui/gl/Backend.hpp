@@ -12,6 +12,9 @@
 #include <GL/glew.h>  // Initialize with glewInit()
 #elif defined(IMGUI_IMPL_OPENGL_LOADER_GLAD)
 #include <glad/glad.h>  // Initialize with gladLoadGL()
+#elif defined(IMGUI_IMPL_OPENGL_LOADER_SDL_GL2)
+#include <GLES3/gl3.h>
+#include <SDL_opengles2.h>
 #else
 #include IMGUI_IMPL_OPENGL_LOADER_CUSTOM
 #endif
