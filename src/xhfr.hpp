@@ -15,7 +15,7 @@
 #include "gui/gl/Backend.hpp"
 
 namespace xhfr {
-int init(const char* appName);
+int init(const char* appName, int w = 800, int h = 600);
 int main();
 // All the evil globals that are required
 extern Dockspace dockspace;

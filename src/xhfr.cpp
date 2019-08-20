@@ -108,7 +108,7 @@ int xhfr::init(const char* appName) {
   }
 
   // Setup Platform/Renderer bindings
-  if (!backend_init(appName)) {
+  if (!backend_init(appName, w, h)) {
     return -1;
   }
 
