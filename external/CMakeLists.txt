@@ -1,8 +1,15 @@
 
 
 include(cmakescripts/imgui.cmake)
-include(cmakescripts/luajit.cmake)
 include(cmakescripts/glfw.cmake)
+
+if(${xhfr_LuaJit})
+    include(cmakescripts/luajit.cmake)
+else()
+    add_subdirectory(lua)
+    ##neded for emscripten
+    include_directories(SYSTEM lua/src)
+endif()
 
 add_subdirectory(stb)
 add_subdirectory(sol2)

@@ -21,3 +21,6 @@
 [submodule "external/sdl"]
 	path = external/sdl
 	url = https://github.com/spurious/SDL-mirror.git
+[submodule "external/lua/src"]
+	path = external/lua/src
+	url = https://github.com/lua/lua.git
