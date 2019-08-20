@@ -17,6 +17,7 @@
 namespace xhfr {
 int init(const char* appName, int w = 800, int h = 600);
 int main();
+void new_frame();
 // All the evil globals that are required
 extern Dockspace dockspace;
 

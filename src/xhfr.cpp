@@ -121,14 +121,7 @@ int xhfr::init(const char* appName, int w, int h) {
 int xhfr::main() {
   // Main loop
   while (!backend_should_close()) {
-    backend_new_frame();
-    ImGui::NewFrame();
-    dockspace.dockspaceStart();
-    dockspace.dockspaceEnd();
-
-    wm->manageWindows();
-
-    backend_render();
+    new_frame();
   }
   backend_shutdown();
   ImGui::DestroyContext();
@@ -136,4 +129,14 @@ int xhfr::main() {
   delete wm;
 
   return 0;
+}
+
+void xhfr::new_frame() {
+  backend_new_frame();
+  ImGui::NewFrame();
+  dockspace.dockspaceStart();
+  dockspace.dockspaceEnd();
+  wm->manageWindows();
+
+  backend_render();
 }
