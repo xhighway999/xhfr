@@ -1,5 +1,16 @@
 #include "xhfr.hpp"
 
+#ifdef __EMSCRIPTEN__
+#include <emscripten.h>
+
+void emscripten_main_loop(void* arg) {
+    xhfr::new_frame();
+}
+
+
+
+#endif
+
 xhfr::WindowManagerBase* xhfr::wm;
 xhfr::Dockspace xhfr::dockspace;
 
@@ -118,19 +129,6 @@ int xhfr::init(const char* appName, int w, int h) {
   return 0;
 }
 
-int xhfr::main() {
-  // Main loop
-  while (!backend_should_close()) {
-    new_frame();
-  }
-  backend_shutdown();
-  ImGui::DestroyContext();
-
-  delete wm;
-
-  return 0;
-}
-
 void xhfr::new_frame() {
   backend_new_frame();
   ImGui::NewFrame();
@@ -139,4 +137,21 @@ void xhfr::new_frame() {
   wm->manageWindows();
 
   backend_render();
+}
+
+int xhfr::main() {
+  // Main loop
+#ifdef __EMSCRIPTEN__
+  emscripten_set_main_loop_arg(emscripten_main_loop, NULL, 0, true);
+#else
+
+  while (!backend_should_close()) {
+    new_frame();
+  }
+  backend_shutdown();
+  ImGui::DestroyContext();
+
+  delete wm;
+#endif
+  return 0;
 }
