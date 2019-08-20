@@ -100,4 +100,9 @@ void backend_shutdown() {
 bool backend_should_close() {
   return glfwWindowShouldClose(window);
 }
+
+bool backend_viewports_support() {
+  return 1;
+}
+
 }  // namespace xhfr

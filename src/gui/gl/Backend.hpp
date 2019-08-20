@@ -22,4 +22,5 @@ void backend_render();
 void backend_new_frame();
 void backend_shutdown();
 bool backend_should_close();
+bool backend_viewports_support();
 }  // namespace xhfr

@@ -132,4 +132,7 @@ bool backend_should_close() {
   return done;
 }
 
+bool backend_viewports_support() {
+  return 1;
+}
 }  // namespace xhfr
