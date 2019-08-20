@@ -12,4 +12,4 @@ add_library(imgui_impl_sdl2 STATIC
 )
 target_compile_definitions(imgui_impl_sdl2 PUBLIC IMGUI_IMPL_OPENGL_LOADER_GLAD)
 target_include_directories(imgui_impl_sdl2 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(imgui_impl_sdl2 glad imgui SDL2-static hidapi)
+target_link_libraries(imgui_impl_sdl2 glad imgui SDL2-static)

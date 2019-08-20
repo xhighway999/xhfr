@@ -8,7 +8,8 @@
 //  [X] Renderer: User texture binding. Use 'GLuint' OpenGL texture identifier
 //  as void*/ImTextureID. Read the FAQ about ImTextureID in imgui.cpp. [X]
 //  Renderer: Multi-viewport support. Enable with 'io.ConfigFlags |=
-//  ImGuiConfigFlags_ViewportsEnable'.
+//  ImGuiConfigFlags_ViewportsEnable'. [x] Renderer: Desktop GL only: Support
+//  for large meshes (64k+ vertices) with 16-bits indices.
 
 // You can copy and use unmodified imgui_impl_* files in your project. See
 // main.cpp for an example of using this. If you are new to dear imgui, read
@@ -30,7 +31,7 @@
 //  version table at the top of imgui_impl_opengl3.cpp.
 
 #pragma once
-#include "imgui.h"
+
 // Specific OpenGL versions
 //#define IMGUI_IMPL_OPENGL_ES2     // Auto-detected on Emscripten
 //#define IMGUI_IMPL_OPENGL_ES3     // Auto-detected on iOS/Android
@@ -43,13 +44,13 @@
 #define IMGUI_IMPL_OPENGL_LOADER_GL3W
 #endif
 
-bool ImGui_ImplOpenGL3_Init(const char* glsl_version = nullptr);
-void ImGui_ImplOpenGL3_Shutdown();
-void ImGui_ImplOpenGL3_NewFrame();
-void ImGui_ImplOpenGL3_RenderDrawData(ImDrawData* draw_data);
+IMGUI_IMPL_API bool ImGui_ImplOpenGL3_Init(const char* glsl_version = NULL);
+IMGUI_IMPL_API void ImGui_ImplOpenGL3_Shutdown();
+IMGUI_IMPL_API void ImGui_ImplOpenGL3_NewFrame();
+IMGUI_IMPL_API void ImGui_ImplOpenGL3_RenderDrawData(ImDrawData* draw_data);
 
 // Called by Init/NewFrame/Shutdown
-bool ImGui_ImplOpenGL3_CreateFontsTexture();
-void ImGui_ImplOpenGL3_DestroyFontsTexture();
-bool ImGui_ImplOpenGL3_CreateDeviceObjects();
-void ImGui_ImplOpenGL3_DestroyDeviceObjects();
+IMGUI_IMPL_API bool ImGui_ImplOpenGL3_CreateFontsTexture();
+IMGUI_IMPL_API void ImGui_ImplOpenGL3_DestroyFontsTexture();
+IMGUI_IMPL_API bool ImGui_ImplOpenGL3_CreateDeviceObjects();
+IMGUI_IMPL_API void ImGui_ImplOpenGL3_DestroyDeviceObjects();

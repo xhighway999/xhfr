@@ -60,10 +60,9 @@
 //  ImGuiKey_Insert. 2017-08-25: Inputs: MousePos set to -FLT_MAX,-FLT_MAX when
 //  mouse is unavailable/missing (instead of -1,-1). 2016-10-15: Misc: Added a
 //  void* user_data parameter to Clipboard function handlers.
+#include "imgui.h"
 
 #include "imgui_impl_sdl.h"
-
-#include "imgui.h"
 
 // SDL
 // (the multi-viewports feature requires SDL features supported from SDL 2.0.4+.
@@ -310,9 +309,9 @@ static void ImGui_ImplSDL2_UpdateMousePosAndButtons() {
   io.MouseDown[0] =
       g_MousePressed[0] ||
       (mouse_buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) !=
-          0;  // If a mouse press event came, always pass it as "mouse held
-              // this frame", so we don't miss click-release events that
-              // are shorter than 1 frame.
+          0;  // If a mouse press event came, always pass it as "mouse held this
+              // frame", so we don't miss click-release events that are shorter
+              // than 1 frame.
   io.MouseDown[1] =
       g_MousePressed[1] || (mouse_buttons & SDL_BUTTON(SDL_BUTTON_RIGHT)) != 0;
   io.MouseDown[2] =
