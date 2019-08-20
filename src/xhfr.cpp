@@ -83,7 +83,7 @@ void setupTheme() {
   colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.00f, 0.00f, 0.00f, 0.43f);
 }
 
-int xhfr::init(const char* appName) {
+int xhfr::init(const char* appName, int w, int h) {
   // Setup Dear ImGui context
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
