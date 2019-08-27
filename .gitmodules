@@ -24,3 +24,9 @@
 [submodule "external/lua/src"]
 	path = external/lua/src
 	url = https://github.com/lua/lua.git
+[submodule "external/physfs"]
+	path = external/physfs
+	url = https://github.com/criptych/physfs.git
+[submodule "external/freetype"]
+	path = external/freetype
+	url = https://github.com/winlibs/freetype.git
