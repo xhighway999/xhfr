@@ -12,12 +12,15 @@
 #include "gui/Window.hpp"
 #include "gui/WindowManagerBase.hpp"
 #include "gui/WindowManagerImpl.hpp"
-#include "gui/gl/Backend.hpp"
+#include "gui/backends/Backend.hpp"
+
+#include "fs/fs.hpp"
 
 namespace xhfr {
-int init(const char* appName, int w = 800, int h = 600);
+int init(int argc, char* argv[], const char* appName, int w = 800, int h = 600);
 int main();
 void new_frame();
+void shutdown();
 // All the evil globals that are required
 extern Dockspace dockspace;
 

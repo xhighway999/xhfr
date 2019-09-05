@@ -1,7 +1,7 @@
 #ifndef IMAGE_HPP
 #define IMAGE_HPP
 
-#include "gl/Backend.hpp"
+#include "backends/Backend.hpp"
 #include "imgui.h"
 #include "stb_image.h"
 

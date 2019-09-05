@@ -12,6 +12,7 @@ endif()
 
 add_subdirectory(stb)
 add_subdirectory(sol2)
+add_subdirectory(physfs)
 
 if(${xhfr_Backend} STREQUAL "sdl")
     add_subdirectory(glad)

@@ -94,8 +94,9 @@ void setupTheme() {
   colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.00f, 0.00f, 0.00f, 0.43f);
 }
 
-int xhfr::init(const char* appName, int w, int h) {
+int xhfr::init(int argc, char* argv[], const char* appName, int w, int h) {
   // Setup Dear ImGui context
+  xhfr::fs::init(argv[0]);
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
   ImGuiIO& io = ImGui::GetIO();
@@ -154,4 +155,8 @@ int xhfr::main() {
   delete wm;
 #endif
   return 0;
+}
+
+void xhfr::shutdown() {
+  xhfr::fs::shutdown();
 }

@@ -1,7 +1,7 @@
 project(gui)
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.14.5)
 
-add_subdirectory(gl)
+add_subdirectory(backends)
 
 add_library(gui STATIC
     Dockspace.hpp
@@ -17,4 +17,5 @@ add_library(gui STATIC
     WindowManagerImpl.cpp
 )
 
-target_link_libraries(gui imgui stb glbackend)
+if(${xhfr_FreeType})
+target_link_libraries(gui imgui fs stb backend)

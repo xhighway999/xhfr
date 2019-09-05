@@ -19,6 +19,8 @@
 #include IMGUI_IMPL_OPENGL_LOADER_CUSTOM
 #endif
 
+#include "backend_keycodes.hpp"
+
 namespace xhfr {
 bool backend_init(const char* appName = "xhfr", int w = 1270, int h = 800);
 void backend_render();
