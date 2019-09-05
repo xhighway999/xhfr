@@ -6,6 +6,11 @@ Image::Image() {
   glGenTextures(1, &texture);
 }
 
+Image::Image(const char* path) {
+  glGenTextures(1, &texture);
+  loadImageFromFile(path);
+}
+
 Image::~Image() {
   if (pixels)
     stbi_image_free(pixels);

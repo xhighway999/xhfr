@@ -12,6 +12,7 @@ namespace xhfr {
 class Image {
  public:
   Image();
+  Image(const char* path);
   ~Image();
   Image(const Image&) = delete;
   void operator=(const Image&) = delete;
