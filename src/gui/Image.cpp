@@ -20,12 +20,24 @@ ImTextureID Image::textureID() {
 }
 
 bool Image::loadImageFromFile(const char* path) {
-  stbi_uc* data = stbi_load(path, &x, &y, &channels, 0);
-  if (!data)
-    return false;
-  loadImageFromRaw(data, x, y, channels);
+  xhfr::File f(path);
+  auto s = f.size();
+  auto data = (unsigned char*)malloc(s);
+  f.read(data, s);
+  f.close();
 
-  stbi_image_free(data);
+  int desired = 0;
+#ifdef __EMSCRIPTEN__
+  // webgl 2.0 does not support the texture swizzling parameter, therfore the
+  // image needs to have 4 channels for greyscale
+  desired = 4;
+#endif
+  stbi_uc* imgdata = stbi_load_from_memory(data, s, &x, &y, &channels, desired);
+  if (!imgdata)
+    return false;
+  loadImageFromRaw(imgdata, x, y, channels);
+
+  stbi_image_free(imgdata);
   return true;
 }
 
@@ -35,10 +47,13 @@ void Image::loadImageFromRaw(const unsigned char* data,
                              int channels) {
   glBindTexture(GL_TEXTURE_2D, texture);
   // set the texture wrapping parameters
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,
-                  GL_REPEAT);  // set texture wrapping to GL_REPEAT (default
-                               // wrapping method)
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+#ifdef __EMSCRIPTEN__
+  constexpr auto wrapMode = GL_CLAMP_TO_EDGE;
+#else
+  constexpr auto wrapMode = GL_REPEAT;
+#endif
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapMode);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapMode);
   // set texture filtering parameters
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -47,6 +62,13 @@ void Image::loadImageFromRaw(const unsigned char* data,
   if (channels == 1) {
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, w, h, 0, GL_RED, GL_UNSIGNED_BYTE,
                  data);
+  } else if (channels == 2) {
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RG8, w, h, 0, GL_RG, GL_UNSIGNED_BYTE,
+                 data);
+#ifndef __EMSCRIPTEN__
+    GLint swizzleMask[] = {GL_RED, GL_RED, GL_RED, GL_GREEN};
+    glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_RGBA, swizzleMask);
+#endif
   } else if (channels == 3) {
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE,
                  data);

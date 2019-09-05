@@ -3,7 +3,6 @@
 
 #include <cstring>
 #include <filesystem>
-#include <iostream>
 #include <string_view>
 #include <vector>
 #include "physfs.h"
