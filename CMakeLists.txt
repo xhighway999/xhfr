@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.14.5)
 option(xhfr_TinyMode "Tiny Mode" OFF)
 option(xhfr_DevMode "Developer Mode" OFF)
 option(xhfr_LuaJit "Use Luajit" OFF)
+option(xhfr_FreeType "Use FreeType" ON)
 set(xhfr_Backend "glfw" CACHE STRING "What backend to use. Valid options: glfw, sdl, sdl-ems")
 
 

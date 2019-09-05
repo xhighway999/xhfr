@@ -3,9 +3,6 @@
 namespace xhfr {
 bool fs::init(const char* path) {
   if (!PHYSFS_init(path)) {
-    const PHYSFS_ErrorCode err = PHYSFS_getLastErrorCode();
-    std::cerr << "PHYSFS_init() failed!\n  reason: \n"
-              << PHYSFS_getErrorByCode(err) << std::endl;
     return false;
   }
 
