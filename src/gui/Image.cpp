@@ -12,8 +12,6 @@ Image::Image(const char* path) {
 }
 
 Image::~Image() {
-  if (pixels)
-    stbi_image_free(pixels);
   glDeleteTextures(1, &texture);
 }
 

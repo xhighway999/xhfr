@@ -31,7 +31,6 @@ class Image {
 
  private:
   int x, y, channels;
-  stbi_uc* pixels = nullptr;
   GLuint texture = 0;
 };
 
