@@ -151,14 +151,16 @@ int xhfr::main() {
   while (!backend_should_close()) {
     new_frame();
   }
-  backend_shutdown();
-  ImGui::DestroyContext();
-
-  delete wm;
+  shutdown();
 #endif
   return 0;
 }
 
 void xhfr::shutdown() {
+  backend_shutdown();
+  ImGui::DestroyContext();
+
+  delete wm;
+
   xhfr::fs::shutdown();
 }
