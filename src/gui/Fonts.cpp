@@ -26,6 +26,10 @@ ImFont* FontManager::addFont(const char* path, float size, ImFontConfig* cfg) {
 
 void FontManager::build() {
   ImGuiIO& io = ImGui::GetIO();
+  if (io.Fonts->Fonts.size() == 0) {
+    addDefaultFont();
+  }
+
 #ifdef XHFR_FREETYPE
   unsigned int flags = ImGuiFreeType::NoHinting;
   ImGuiFreeType::BuildFontAtlas(io.Fonts, flags);
