@@ -93,8 +93,12 @@ void setupTheme() {
 }
 
 int xhfr::init(int argc, char* argv[], const char* appName, int w, int h) {
-  // Setup Dear ImGui context
-  xhfr::fs::init(argv[0]);
+  if (argc != 0) {
+    xhfr::fs::init(argv[0]);
+  } else {
+    xhfr::fs::init(nullptr);
+  }
+
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
   ImGuiIO& io = ImGui::GetIO();
