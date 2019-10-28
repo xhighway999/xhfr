@@ -1,9 +1,10 @@
 #pragma once
 
-#include "imgui.h"
-
 #include <stdio.h>
+
 #include <string>
+
+#include "imgui.h"
 namespace ImGui {
 void AutoPlot(const char* label,
               float* newValue,

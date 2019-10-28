@@ -1,10 +1,10 @@
 #ifndef CORE_WINDOW_H
 #define CORE_WINDOW_H
 
+#include <string>
+
 #include "WindowManagerBase.hpp"
 #include "imgui.h"
-
-#include <string>
 
 namespace xhfr {
 

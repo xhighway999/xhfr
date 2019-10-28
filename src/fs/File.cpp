@@ -2,7 +2,6 @@
 
 namespace xhfr {
 
-
 File::File(std::string_view path, bool write) {
   open(path, write);
 }

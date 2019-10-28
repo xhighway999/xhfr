@@ -2,7 +2,9 @@
 #define FILE_HPP
 
 #include <stdio.h>
+
 #include <cstring>
+
 #include "fs.hpp"
 namespace xhfr {
 

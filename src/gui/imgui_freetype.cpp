@@ -38,7 +38,9 @@
 // necessary with this rasterizer).
 
 #include "imgui_freetype.h"
+
 #include <stdint.h>
+
 #include "freetype/include/ft2build.h"
 #include "imgui_internal.h"  // ImMin,ImMax,ImFontAtlasBuild*,
 //#include "ft2build.h"

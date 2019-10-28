@@ -6,6 +6,7 @@
 // purpose library for handling windows, inputs, OpenGL/Vulkan graphics context
 // creation, etc.)
 
+#include "fs/fs.hpp"
 #include "gui/Dockspace.hpp"
 #include "gui/Fonts.hpp"
 #include "gui/Image.hpp"
@@ -14,8 +15,6 @@
 #include "gui/WindowManagerBase.hpp"
 #include "gui/WindowManagerImpl.hpp"
 #include "gui/backends/Backend.hpp"
-
-#include "fs/fs.hpp"
 
 namespace xhfr {
 int init(int argc, char* argv[], const char* appName, int w = 800, int h = 600);
