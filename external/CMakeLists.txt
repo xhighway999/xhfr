@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.14.5)
 
 
 include(cmakescripts/imgui.cmake)
@@ -12,7 +13,9 @@ endif()
 
 add_subdirectory(stb)
 add_subdirectory(sol2)
-add_subdirectory(physfs)
+if(NOT ${xhfr_PhysFs_external})
+    add_subdirectory(physfs)
+endif()
 if(${xhfr_FreeType})
     include(cmakescripts/freetype.cmake)
 endif()
