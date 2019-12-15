@@ -5,6 +5,7 @@ option(xhfr_DevMode "Developer Mode" OFF)
 option(xhfr_LuaJit "Use Luajit" OFF)
 option(xhfr_FreeType "Use FreeType" ON)
 option(xhfr_PhysFs_external "Use System/Parent PhysFS library" OFF)
+option(xhfr_stb_external "Use System/Parent stb library" OFF)
 set(xhfr_Backend "glfw" CACHE STRING "What backend to use. Valid options: glfw, sdl, sdl-ems")
 
 
