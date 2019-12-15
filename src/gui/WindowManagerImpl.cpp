@@ -5,6 +5,9 @@ void xhfr::WindowManagerImpl::addWindow(xhfr::Window* window) {
 }
 
 void xhfr::WindowManagerImpl::manageWindows() {
+  if (mainMenuBarUsed) {
+    mainMenuBarFunction();
+  }
   for (Window* window : windows) {
     if (!window->getVisible())
       continue;
@@ -13,4 +16,10 @@ void xhfr::WindowManagerImpl::manageWindows() {
     window->onDraw();
     ImGui::End();
   }
+}
+
+void xhfr::WindowManagerImpl::setMainMenuBarFunction(
+    std::function<void()> menuBarFunction) {
+  mainMenuBarFunction = menuBarFunction;
+  mainMenuBarUsed = true;
 }

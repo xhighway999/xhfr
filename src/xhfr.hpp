@@ -23,5 +23,5 @@ void new_frame();
 void shutdown();
 // All the evil globals that are required
 extern Dockspace dockspace;
-
+extern xhfr::WindowManagerBase* wm;
 }  // namespace xhfr

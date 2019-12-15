@@ -14,10 +14,14 @@ class WindowManagerImpl : public WindowManagerBase {
   WindowManagerImpl(){};
   virtual void addWindow(Window* window) override;
   virtual void manageWindows() override;
+  virtual void setMainMenuBarFunction(
+      std::function<void()> menuBarFunction) override;
   virtual ~WindowManagerImpl() {}
 
  private:
   std::vector<Window*> windows;
+  std::function<void()> mainMenuBarFunction;
+  bool mainMenuBarUsed = false;
 };
 
 }  // namespace xhfr
