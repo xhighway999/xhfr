@@ -11,9 +11,14 @@ void xhfr::WindowManagerImpl::manageWindows() {
   for (Window* window : windows) {
     if (!window->getVisible())
       continue;
-
-    ImGui::Begin(window->getTitle().c_str(), NULL, window->getFlags());
+    bool close_pressed = true;
+    if (ImGui::Begin(window->getTitle().c_str(), &close_pressed,
+                     window->getFlags())) {
+      if (!close_pressed) {
+        window->onClosePressed();
+      }
     window->onDraw();
+    }
     ImGui::End();
   }
 }

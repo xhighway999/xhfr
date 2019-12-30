@@ -19,6 +19,7 @@ class Window {
   void setTitle(const std::string& title);
   void setVisible(bool vis);
   bool getVisible();
+  virtual void onClosePressed() {}
 
   const ImGuiWindowFlags& getFlags();
 
