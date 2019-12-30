@@ -135,6 +135,7 @@ int xhfr::init(int argc, char* argv[], const char* appName, int w, int h) {
 void xhfr::new_frame() {
   backend_new_frame();
   ImGui::NewFrame();
+  dockspace.viewportHasWindowBar = wm->MainMenuBarUsed();
   dockspace.dockspaceStart();
   dockspace.dockspaceEnd();
   wm->manageWindows();

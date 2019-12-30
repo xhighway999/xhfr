@@ -17,7 +17,7 @@ void xhfr::WindowManagerImpl::manageWindows() {
       if (!close_pressed) {
         window->onClosePressed();
       }
-    window->onDraw();
+      window->onDraw();
     }
     ImGui::End();
   }
@@ -27,4 +27,8 @@ void xhfr::WindowManagerImpl::setMainMenuBarFunction(
     std::function<void()> menuBarFunction) {
   mainMenuBarFunction = menuBarFunction;
   mainMenuBarUsed = true;
+}
+
+bool xhfr::WindowManagerImpl::MainMenuBarUsed() {
+  return mainMenuBarUsed;
 }

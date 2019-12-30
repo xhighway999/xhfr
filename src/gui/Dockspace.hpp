@@ -10,6 +10,7 @@ class Dockspace {
   void dockspaceStart();
   void dockspaceEnd();
   bool showDebugMenu = false;
+  bool viewportHasWindowBar = true;
 };
 }  // namespace xhfr
 

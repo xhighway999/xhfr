@@ -13,6 +13,7 @@ class WindowManagerBase {
   virtual void setMainMenuBarFunction(
       std::function<void()> menuBarFunction) = 0;
   virtual ~WindowManagerBase() {}
+  virtual bool MainMenuBarUsed() = 0;
 };
 extern WindowManagerBase* wm;
 }  // namespace xhfr

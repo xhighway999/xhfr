@@ -14,8 +14,16 @@ void xhfr::Dockspace::dockspaceStart() {
       (ImGuiWindowFlags_MenuBar & showDebugMenu) | ImGuiWindowFlags_NoDocking;
   if (opt_fullscreen) {
     ImGuiViewport* viewport = ImGui::GetMainViewport();
-    ImGui::SetNextWindowPos(viewport->Pos);
-    ImGui::SetNextWindowSize(viewport->Size);
+
+    auto vpos = viewport->Pos;
+    auto vsize = viewport->Size;
+    if (viewportHasWindowBar) {
+      vpos.y += ImGui::GetFrameHeight();
+      vsize.y -= ImGui::GetFrameHeight();
+    }
+
+    ImGui::SetNextWindowPos(vpos);
+    ImGui::SetNextWindowSize(vsize);
     ImGui::SetNextWindowViewport(viewport->ID);
     ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
     ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
