@@ -8,13 +8,19 @@ void xhfr::WindowManagerImpl::manageWindows() {
   if (mainMenuBarUsed) {
     mainMenuBarFunction();
   }
-  for (Window* window : windows) {
+
+  for (auto windowe = windows.begin(); windowe != windows.end(); ++windowe) {
+    Window* window = *windowe;
     if (!window->getVisible())
       continue;
     bool close_pressed = true;
     if (ImGui::Begin(window->getTitle().c_str(), &close_pressed,
                      window->getFlags())) {
       if (!close_pressed) {
+        auto it =
+            windows.erase(std::remove(windows.begin(), windows.end(), window));
+        it--;
+        windowe = it;
         window->onClosePressed();
       }
       window->onDraw();
