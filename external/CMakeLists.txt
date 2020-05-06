@@ -7,7 +7,7 @@ if(${xhfr_LuaJit})
     include(cmakescripts/luajit.cmake)
 else()
     add_subdirectory(lua)
-    ##neded for emscripten
+    #needed for emscripten
     include_directories(SYSTEM lua/src)
 endif()
 
@@ -16,6 +16,8 @@ if(NOT ${xhfr_stb_external})
 endif()
 add_subdirectory(sol2)
 if(NOT ${xhfr_PhysFs_external})
+    #stop physfs conflicting with glfw
+    set(PHYSFS_TARGETNAME_DOCS "physfs_docs" CACHE STRING "physfs_docs" )
     add_subdirectory(physfs)
 endif()
 if(${xhfr_FreeType})
