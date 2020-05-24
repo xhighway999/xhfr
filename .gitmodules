@@ -30,3 +30,6 @@
 [submodule "external/freetype"]
 	path = external/freetype
 	url = https://github.com/winlibs/freetype.git
+[submodule "external/trs"]
+	path = external/trs
+	url = git@github.com:xhighway999/trs.git

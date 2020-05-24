@@ -21,6 +21,30 @@ include_directories(PUBLIC external)
 add_subdirectory(external)
 add_subdirectory(src)
 
+macro(trs_add input output type)
+    IF(CMAKE_CROSSCOMPILING)
+      SET(trs "IMPORTFILE-NOTFOUND" CACHE FILEPATH "Point it to the export file from a native build")
+
+      add_custom_target(
+          UPDATE_RESOURCES
+          COMMAND ${trs} -i ${input} -o ${output} -t ${type}
+          #COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/mk_config_h.py ${CMAKE_CURRENT_BINARY_DIR}/config.h
+      )
+
+    else(CMAKE_CROSSCOMPILING)
+    add_subdirectory(external/trs)
+    add_custom_target(
+        UPDATE_RESOURCES
+        COMMAND trs -i ${input} -o ${output} -t ${type}
+        #COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/mk_config_h.py ${CMAKE_CURRENT_BINARY_DIR}/config.h
+    )
+    endif(CMAKE_CROSSCOMPILING)
+    add_dependencies(xhfr UPDATE_RESOURCES)
+endmacro()
+
+trs_add(${CMAKE_CURRENT_SOURCE_DIR}/../ ${CMAKE_CURRENT_SOURCE_DIR}/../data.c c)
+
+
 # strip -s -R .comment -R .gnu.version --strip-unneeded
 # strip -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag
 #upx -9 --lzma roboeye
