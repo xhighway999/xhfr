@@ -19,6 +19,11 @@ ImTextureID Image::textureID() {
   return reinterpret_cast<ImTextureID>(texture);
 }
 
+void Image::setInterpolationMode(GLenum interp) {
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, interp);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, interp);
+}
+
 bool Image::loadImageFromFile(const char* path) {
   xhfr::File f(path);
   auto s = f.size();

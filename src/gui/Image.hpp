@@ -18,6 +18,7 @@ class Image {
   Image(const Image&) = delete;
   void operator=(const Image&) = delete;
   ImTextureID textureID();
+  void setInterpolationMode(GLenum interp);
   bool loadImageFromFile(const char* path);
   void loadImageFromRaw(const unsigned char* data, int w, int h, int channels);
   void loadImageFromRaw(int w,
