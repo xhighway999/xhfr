@@ -17,7 +17,7 @@ bool fs::createDirectory(std::string_view path) {
   return std::filesystem::create_directory(path);
 }
 
-std::vector<fs::FileInfo> fs::listFiles(std::string_view path) {
+std::vector<fs::FileInfo> fs::listFiles(std::string_view path, bool recursive) {
   std::vector<fs::FileInfo> dirfiles;
   if (path.front() == ':') {
     std::string str(path.substr(1));
@@ -38,6 +38,25 @@ std::vector<fs::FileInfo> fs::listFiles(std::string_view path) {
     PHYSFS_freeList(files);
 
   } else {
+    if (recursive) {
+      for (auto& p : std::filesystem::recursive_directory_iterator(path)) {
+        FileInfo f;
+        f.path = p.path();
+        f.name = p.path().filename();
+
+        if (p.is_regular_file()) {
+          f.size = p.file_size();
+          f.type = Regular;
+        } else if (p.is_directory()) {
+          f.type = Directory;
+        } else if (p.is_symlink()) {
+          f.type = Symlink;
+        } else {
+          f.type = Other;
+        }
+        dirfiles.push_back(f);
+      }
+    }
   }
   return dirfiles;
 }
@@ -55,4 +74,19 @@ bool fs::deleteFile(std::string_view path) {
     return std::filesystem::remove(path);
   }
 }
+
+bool fs::exists(std::string_view path) {
+  if (path.front() == ':') {
+    std::string str(path.substr(1));
+    if (str.front() == '/')
+      str = str.substr(1);
+    str = str.substr(strlen(PHYSFS_getWriteDir()));
+    if (str.front() == '/')
+      str = str.substr(1);
+    return PHYSFS_exists(str.c_str());
+  } else {
+    return std::filesystem::exists(path);
+  }
+}
+
 }  // namespace xhfr

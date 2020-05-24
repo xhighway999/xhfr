@@ -3,6 +3,7 @@
 
 #include <cstring>
 #include <filesystem>
+#include <string>
 #include <string_view>
 #include <vector>
 
@@ -22,8 +23,9 @@ struct FileInfo {
 
 bool init(const char* path);
 void shutdown();
+bool exists(std::string_view path);
 bool createDirectory(std::string_view path);
-std::vector<FileInfo> listFiles(std::string_view path);
+std::vector<FileInfo> listFiles(std::string_view path, bool recursiv = false);
 bool deleteFile(std::string_view path);
 };  // namespace fs
 }  // namespace xhfr
