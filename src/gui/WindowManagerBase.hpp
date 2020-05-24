@@ -8,6 +8,7 @@ class Window;
 class WindowManagerBase {
  public:
   WindowManagerBase() = default;
+  virtual bool hasWindow(Window* window) = 0;
   virtual void addWindow(Window* window) = 0;
   virtual void manageWindows() = 0;
   virtual void setMainMenuBarFunction(

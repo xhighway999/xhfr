@@ -4,6 +4,15 @@ void xhfr::WindowManagerImpl::addWindow(xhfr::Window* window) {
   windows.push_back(window);
 }
 
+bool xhfr::WindowManagerImpl::hasWindow(xhfr::Window* window) {
+  for (const auto* w : windows) {
+    if (w == window) {
+      return true;
+    }
+  }
+  return false;
+}
+
 void xhfr::WindowManagerImpl::manageWindows() {
   if (mainMenuBarUsed) {
     mainMenuBarFunction();

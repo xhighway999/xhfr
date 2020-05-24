@@ -17,6 +17,9 @@ bool xhfr::Window::getVisible() {
 }
 
 void xhfr::Window::setVisible(bool vis) {
+  if (!xhfr::wm->hasWindow(this) && vis) {
+    xhfr::wm->addWindow(this);
+  }
   visible = vis;
 }
 
