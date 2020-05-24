@@ -4,18 +4,46 @@ static void glfw_error_callback(int error, const char* description) {
   fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
+void gl_error_callback(GLenum source,
+                       GLenum type,
+                       GLuint id,
+                       GLenum severity,
+                       GLsizei length,
+                       const GLchar* message,
+                       const void* userParam) {
+  const char* severityString = "invalid";
+#define STRTOENUM(strname, valname) \
+  case valname:                     \
+    strname = #valname;             \
+    break;
+
+  switch (severity) {
+    STRTOENUM(severityString, GL_DEBUG_SEVERITY_HIGH)
+    STRTOENUM(severityString, GL_DEBUG_SEVERITY_MEDIUM)
+    STRTOENUM(severityString, GL_DEBUG_SEVERITY_LOW)
+    STRTOENUM(severityString, GL_DEBUG_SEVERITY_NOTIFICATION)
+  }
+
+  fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = %s, message = %s\n",
+          (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type,
+          severityString, message);
+}
+
 namespace xhfr {
 GLFWwindow* window;
 ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+const char* glsl_version = 0;
 bool backend_init(const char* appName, int w, int h) {
   glfwSetErrorCallback(glfw_error_callback);
   if (!glfwInit())
     return 1;
 
-    // Decide GL+GLSL versions
+  glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+
+  // Decide GL+GLSL versions
 #if __APPLE__
   // GL 3.2 + GLSL 150
-  const char* glsl_version = "#version 150";
+  glsl_version = "#version 150";
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
@@ -23,7 +51,7 @@ bool backend_init(const char* appName, int w, int h) {
   glfwWindowHint(GLFW_FOCUS_ON_SHOW, false);
 #else
   // GL 3.0 + GLSL 130
-  const char* glsl_version = "#version 130";
+  glsl_version = "#version 130";
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
   glfwWindowHint(GLFW_FOCUS_ON_SHOW, false);
@@ -53,11 +81,15 @@ bool backend_init(const char* appName, int w, int h) {
     fprintf(stderr, "Failed to initialize OpenGL loader!\n");
     return 1;
   }
-  // Setup Platform/Renderer bindings
-  ImGui_ImplGlfw_InitForOpenGL(window, true);
-  ImGui_ImplOpenGL3_Init(glsl_version);
   return true;
 }
+
+void backend_init_platform_impl() {
+  ImGui_ImplGlfw_InitForOpenGL(window, true);
+  ImGui_ImplOpenGL3_Init(glsl_version);
+  // glDebugMessageCallback(gl_error_callback, NULL);
+}
+
 void backend_render() {
   // Rendering
   ImGui::Render();
@@ -73,15 +105,14 @@ void backend_render() {
   // save/restore it to make it easier to paste this code elsewhere.
   //  For this specific demo app we could also call
   //  glfwMakeContextCurrent(window) directly)
+
   ImGuiIO& io = ImGui::GetIO();
-  (void)io;
   if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
     GLFWwindow* backup_current_context = glfwGetCurrentContext();
     ImGui::UpdatePlatformWindows();
     ImGui::RenderPlatformWindowsDefault();
     glfwMakeContextCurrent(backup_current_context);
   }
-
   glfwSwapBuffers(window);
 }
 

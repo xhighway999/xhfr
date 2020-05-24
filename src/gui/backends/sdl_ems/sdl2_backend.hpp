@@ -1,5 +1,3 @@
-#pragma once
-#include <SDL_opengles2.h>
 #include <stdio.h>
 
 #include "../Backend.hpp"
