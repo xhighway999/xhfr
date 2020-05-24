@@ -1,5 +1,7 @@
 project(xhfr)
 
+set (CMAKE_CXX_STANDARD 17)
+
 add_subdirectory(gui)
 add_subdirectory(fs)
 add_library(xhfr STATIC

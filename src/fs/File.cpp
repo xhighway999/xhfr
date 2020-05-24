@@ -30,7 +30,12 @@ bool File::open(std::string_view path, bool write) {
     isPhFile = true;
     return phFile;
   }
-  file = fopen(path.data(), write ? "rw" : "w");
+  file = fopen(path.data(), write ? "w" : "r");
+  if (!write) {
+    fseek(file, 0L, SEEK_END);
+    fileSize = ftell(file);
+    rewind(file);
+  }
   return file;
 }
 

@@ -1,8 +1,6 @@
 #include "xhfr.hpp"
 
 #ifdef __EMSCRIPTEN__
-#include <emscripten.h>
-
 void emscripten_main_loop(void* arg) {
   xhfr::new_frame();
 }
@@ -43,7 +41,7 @@ void setupTheme() {
   colors[ImGuiCol_Text] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
   colors[ImGuiCol_TextDisabled] = ImVec4(0.44f, 0.44f, 0.44f, 1.00f);
   colors[ImGuiCol_WindowBg] = ImVec4(0.14f, 0.14f, 0.14f, 1.00f);
-  colors[ImGuiCol_ChildBg] = ImVec4(0.13f, 0.13f, 0.13f, 1.00f);
+  colors[ImGuiCol_ChildBg] = ImVec4(0.13f, 0.13f, 0.13f, 0.00f);
   colors[ImGuiCol_PopupBg] = ImVec4(0.12f, 0.12f, 0.12f, 1.00f);
   colors[ImGuiCol_Border] = ImVec4(0.22f, 0.22f, 0.22f, 1.00f);
   colors[ImGuiCol_BorderShadow] = ImVec4(1.00f, 0.00f, 1.00f, 1.00f);
@@ -64,7 +62,7 @@ void setupTheme() {
   colors[ImGuiCol_Button] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
   colors[ImGuiCol_ButtonHovered] = ImVec4(0.29f, 0.29f, 0.29f, 1.00f);
   colors[ImGuiCol_ButtonActive] = ImVec4(0.24f, 0.24f, 0.24f, 1.00f);
-  colors[ImGuiCol_Header] = ImVec4(0.12f, 0.12f, 0.12f, 1.00f);
+  colors[ImGuiCol_Header] = ImVec4(0.1f, 0.1f, 0.1f, 1.00f);
   colors[ImGuiCol_HeaderHovered] = ImVec4(0.11f, 0.11f, 0.11f, 1.00f);
   colors[ImGuiCol_HeaderActive] = ImVec4(0.16f, 0.16f, 0.16f, 1.00f);
   colors[ImGuiCol_Separator] = ImVec4(0.08f, 0.08f, 0.08f, 1.00f);
@@ -99,10 +97,14 @@ int xhfr::init(int argc, char* argv[], const char* appName, int w, int h) {
     xhfr::fs::init(nullptr);
   }
 
+  // Setup Platform/Renderer bindings
+  if (!backend_init(appName, w, h)) {
+    return -1;
+  }
+
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
   ImGuiIO& io = ImGui::GetIO();
-  (void)io;
   io.ConfigFlags |=
       ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
   // io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad
@@ -120,11 +122,7 @@ int xhfr::init(int argc, char* argv[], const char* appName, int w, int h) {
     style.WindowRounding = 0.0f;
     style.Colors[ImGuiCol_WindowBg].w = 1.0f;
   }
-
-  // Setup Platform/Renderer bindings
-  if (!backend_init(appName, w, h)) {
-    return -1;
-  }
+  backend_init_platform_impl();
 
   setupTheme();
   // allocate the window manager
