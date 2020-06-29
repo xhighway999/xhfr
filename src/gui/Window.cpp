@@ -33,3 +33,7 @@ void xhfr::Window::setFlag(ImGuiWindowFlags flag, bool enabled) {
   else
     windowFlags = windowFlags & ~flag;
 }
+
+void xhfr::Window::destroy() {
+  destroyWindow = true;
+}

@@ -10,6 +10,7 @@ namespace xhfr {
 
 class Window {
   friend class WindowManagerBase;
+  friend class WindowManagerImpl;
 
  public:
   Window();
@@ -23,11 +24,14 @@ class Window {
 
   const ImGuiWindowFlags& getFlags();
 
+  void destroy();
+
  protected:
   void setFlag(ImGuiWindowFlags flag, bool enabled = true);
   ImGuiWindowFlags windowFlags = 0;
 
  private:
+  bool destroyWindow = false;
   bool visible = false;
   std::string windowTitle = "";
 };

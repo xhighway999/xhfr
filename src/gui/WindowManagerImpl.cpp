@@ -25,7 +25,7 @@ void xhfr::WindowManagerImpl::manageWindows() {
     bool close_pressed = true;
     if (ImGui::Begin(window->getTitle().c_str(), &close_pressed,
                      window->getFlags())) {
-      if (!close_pressed) {
+      if (!close_pressed || window->destroyWindow) {
         auto it =
             windows.erase(std::remove(windows.begin(), windows.end(), window));
         it--;
@@ -36,6 +36,10 @@ void xhfr::WindowManagerImpl::manageWindows() {
     }
     ImGui::End();
   }
+}
+
+void xhfr::WindowManagerImpl::destroyWindow(xhfr::Window* window) {
+  windows.erase(std::remove(windows.begin(), windows.end(), window));
 }
 
 void xhfr::WindowManagerImpl::setMainMenuBarFunction(

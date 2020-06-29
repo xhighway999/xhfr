@@ -15,6 +15,7 @@ class WindowManagerImpl : public WindowManagerBase {
   virtual void addWindow(Window* window) override;
   virtual bool hasWindow(Window* window) override;
   virtual void manageWindows() override;
+  virtual void destroyWindow(Window* window) override;
   virtual void setMainMenuBarFunction(
       std::function<void()> menuBarFunction) override;
   virtual bool MainMenuBarUsed() override;
