@@ -9,7 +9,8 @@ void emscripten_main_loop(void* arg) {
 
 xhfr::WindowManagerBase* xhfr::wm;
 xhfr::Dockspace xhfr::dockspace;
-
+std::vector<std::function<void()>> xhfr::userOnFrameFunctions;
+xhfr::debug xhfr::dbg;
 void setupTheme() {
   ImGuiStyle& mStyle = ImGui::GetStyle();
   mStyle.WindowMinSize = ImVec2(160, 20);
@@ -91,6 +92,7 @@ void setupTheme() {
 }
 
 int xhfr::init(int argc, char* argv[], const char* appName, int w, int h) {
+  dbg.initLogging();
   if (argc != 0) {
     xhfr::fs::init(argv[0]);
   } else {
@@ -138,6 +140,11 @@ void xhfr::new_frame() {
   dockspace.dockspaceEnd();
   wm->manageWindows();
 
+  // execute user on frame functions
+  for (auto& user_funcs : userOnFrameFunctions) {
+    user_funcs();
+  }
+
   backend_render();
 }
 
@@ -162,4 +169,8 @@ void xhfr::shutdown() {
   delete wm;
 
   xhfr::fs::shutdown();
+}
+
+void xhfr::addUserFunction(const std::function<void()> func) {
+  userOnFrameFunctions.push_back(func);
 }

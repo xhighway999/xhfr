@@ -3,9 +3,12 @@
 
 #include <cstring>
 #include <filesystem>
+#include <functional>
 #include <string>
 #include <string_view>
 #include <vector>
+
+#include "../core/debug.hpp"
 
 #include "physfs.h"
 namespace xhfr {
@@ -27,6 +30,7 @@ bool exists(std::string_view path);
 bool createDirectory(std::string_view path);
 std::vector<FileInfo> listFiles(std::string_view path, bool recursiv = false);
 bool deleteFile(std::string_view path);
+void flush();
 };  // namespace fs
 }  // namespace xhfr
 

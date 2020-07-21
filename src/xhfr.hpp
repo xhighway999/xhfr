@@ -1,5 +1,6 @@
 #pragma once
 
+#include "core/debug.hpp"
 #include "fs/fs.hpp"
 #include "gui/Dockspace.hpp"
 #include "gui/Fonts.hpp"
@@ -10,6 +11,7 @@
 #include "gui/WindowManagerImpl.hpp"
 #include "gui/backends/Backend.hpp"
 
+#include <functional>
 #include <iostream>
 
 #ifdef __EMSCRIPTEN__
@@ -22,7 +24,10 @@ int init(int argc, char* argv[], const char* appName, int w = 800, int h = 600);
 int main();
 void new_frame();
 void shutdown();
+void addUserFunction(const std::function<void()> func);
 // All the evil globals that are required
 extern Dockspace dockspace;
 extern xhfr::WindowManagerBase* wm;
+extern std::vector<std::function<void()>> userOnFrameFunctions;
+extern debug dbg;
 }  // namespace xhfr

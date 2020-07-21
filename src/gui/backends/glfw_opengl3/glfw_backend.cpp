@@ -24,9 +24,28 @@ void gl_error_callback(GLenum source,
     STRTOENUM(severityString, GL_DEBUG_SEVERITY_NOTIFICATION)
   }
 
-  fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = %s, message = %s\n",
-          (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type,
-          severityString, message);
+  char debugMessage[1024];
+  sprintf(debugMessage, "GL CALLBACK: %s type = 0x%x, message = %s\n",
+          (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type, message);
+
+  switch (severity) {
+    case GL_DEBUG_SEVERITY_HIGH:
+      XHFR_ERROR("{}", debugMessage);
+      break;
+    case GL_DEBUG_SEVERITY_MEDIUM:
+
+      XHFR_WARN("{}", debugMessage);
+      break;
+    case GL_DEBUG_SEVERITY_LOW:
+
+      XHFR_INFO("{}", debugMessage);
+      break;
+    case GL_DEBUG_SEVERITY_NOTIFICATION:
+      XHFR_DEBUG("{}", debugMessage);
+      break;
+    default:
+      throw 1;
+  }
 }
 
 namespace xhfr {
@@ -87,7 +106,7 @@ bool backend_init(const char* appName, int w, int h) {
 void backend_init_platform_impl() {
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init(glsl_version);
-  // glDebugMessageCallback(gl_error_callback, NULL);
+  glDebugMessageCallback(gl_error_callback, NULL);
 }
 
 void backend_render() {

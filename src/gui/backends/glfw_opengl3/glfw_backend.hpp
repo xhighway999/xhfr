@@ -6,6 +6,8 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
+#include "../../../core/debug.hpp"
+
 // Include glfw3.h after our OpenGL definitions
 #include <GLFW/glfw3.h>
 

@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.14.5)
 
 
+
 include(cmakescripts/imgui.cmake)
 include(cmakescripts/glfw.cmake)
 if(${xhfr_LuaJit})
@@ -9,6 +10,10 @@ else()
     add_subdirectory(lua)
     #needed for emscripten
     include_directories(SYSTEM lua/src)
+endif()
+
+if(NOT ${xhfr_spdlog_external})
+    add_subdirectory(spdlog)
 endif()
 
 if(NOT ${xhfr_stb_external})

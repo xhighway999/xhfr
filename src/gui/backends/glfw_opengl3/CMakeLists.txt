@@ -14,4 +14,4 @@ add_library(imgui_impl_glfw STATIC
 )
 target_compile_definitions(imgui_impl_glfw PUBLIC IMGUI_IMPL_OPENGL_LOADER_GLAD)
 target_include_directories(imgui_impl_glfw PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(imgui_impl_glfw glad glfw imgui)
+target_link_libraries(imgui_impl_glfw glad glfw imgui core)
