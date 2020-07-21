@@ -33,13 +33,16 @@ bool Image::loadImageFromFile(const char* path) {
 
   int desired = 0;
 #ifdef __EMSCRIPTEN__
+  desired = 4;
   // webgl 2.0 does not support the texture swizzling parameter, therfore the
   // image needs to have 4 channels for greyscale
-  desired = 4;
 #endif
   stbi_uc* imgdata = stbi_load_from_memory(data, s, &x, &y, &channels, desired);
   if (!imgdata)
     return false;
+#ifdef __EMSCRIPTEN__
+  channels = desired;
+#endif
   loadImageFromRaw(imgdata, x, y, channels);
 
   stbi_image_free(imgdata);
@@ -52,7 +55,7 @@ void Image::loadImageFromRaw(const unsigned char* data,
                              int channels) {
   glBindTexture(GL_TEXTURE_2D, texture);
   // set the texture wrapping parameters
-#ifdef __EMSCRIPTEN__
+#if 1
   constexpr auto wrapMode = GL_CLAMP_TO_EDGE;
 #else
   constexpr auto wrapMode = GL_REPEAT;
@@ -70,10 +73,12 @@ void Image::loadImageFromRaw(const unsigned char* data,
   } else if (channels == 2) {
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RG8, w, h, 0, GL_RG, GL_UNSIGNED_BYTE,
                  data);
-#ifndef __EMSCRIPTEN__
     GLint swizzleMask[] = {GL_RED, GL_RED, GL_RED, GL_GREEN};
-    glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_RGBA, swizzleMask);
-#endif
+    glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_R, &swizzleMask[0]);
+    glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_G, &swizzleMask[1]);
+    glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_B, &swizzleMask[2]);
+    glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_A, &swizzleMask[3]);
+
   } else if (channels == 3) {
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE,
                  data);
