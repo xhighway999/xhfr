@@ -27,7 +27,7 @@ class File {
   };
 
   std::uintmax_t fileSize;
-  bool isPhFile = false;
+  bool isPhFile = false, readOnly = true;
 };
 
 }  // namespace xhfr

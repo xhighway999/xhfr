@@ -11,6 +11,8 @@ File::~File() {
 }
 
 bool File::open(std::string_view path, bool write) {
+  readOnly = !write;
+
   if (path.front() == ':') {
     std::string str = path.data();
     str = str.substr(1);
@@ -53,6 +55,9 @@ void File::close() {
   }
   isPhFile ? PHYSFS_close(phFile) : fclose(file);
   file = nullptr;
+  if (!readOnly) {
+    xhfr::fs::flush();
+  }
 }
 
 int64_t File::read(void* buffer, size_t size) {
