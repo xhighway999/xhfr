@@ -18,28 +18,35 @@ void xhfr::WindowManagerImpl::manageWindows() {
     mainMenuBarFunction();
   }
 
-  for (auto windowe = windows.begin(); windowe != windows.end(); ++windowe) {
-    Window* window = *windowe;
+  // this is a little weird to account for size changes while in loop
+  size_t i = 0, totalWindows = windows.size();
+  for (i = 0; i != totalWindows; i++) {
+    Window* window = windows[i];
     if (!window->getVisible())
       continue;
-    bool close_pressed = true;
-    if (ImGui::Begin(window->getTitle().c_str(), &close_pressed,
-                     window->getFlags())) {
-      if (!close_pressed || window->destroyWindow) {
-        auto it =
-            windows.erase(std::remove(windows.begin(), windows.end(), window));
-        it--;
-        windowe = it;
-        window->onClosePressed();
+    bool open = true;
+    if (ImGui::Begin(window->getTitle().c_str(), &open, window->getFlags())) {
+      if (!open) {
+        window->destroyWindow = true;
       }
       window->onDraw();
     }
     ImGui::End();
   }
+
+  // handle window destruction
+  std::remove_if(windows.begin(), windows.end(), [](Window* w) {
+    if (w->destroyWindow) {
+      w->onClosePressed();
+      return true;
+    }
+    return false;
+  });
 }
 
 void xhfr::WindowManagerImpl::destroyWindow(xhfr::Window* window) {
-  windows.erase(std::remove(windows.begin(), windows.end(), window));
+  window->destroy();
+  // windows.erase(std::remove(windows.begin(), windows.end(), window));
 }
 
 void xhfr::WindowManagerImpl::setMainMenuBarFunction(
