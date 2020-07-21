@@ -4,6 +4,8 @@ xhfr::Window::Window() {
   xhfr::wm->addWindow(this);
 }
 
+xhfr::Window::~Window() {}
+
 const std::string& xhfr::Window::getTitle() {
   return windowTitle;
 }

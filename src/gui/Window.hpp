@@ -15,7 +15,7 @@ class Window {
  public:
   Window();
   virtual void onDraw() = 0;
-  virtual ~Window() = default;
+  virtual ~Window();
   const std::string& getTitle();
   void setTitle(const std::string& title);
   void setVisible(bool vis);
