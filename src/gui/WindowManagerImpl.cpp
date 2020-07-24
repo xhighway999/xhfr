@@ -21,6 +21,7 @@ void xhfr::WindowManagerImpl::manageWindows() {
   // this is a little weird to account for size changes while in loop
   size_t i = 0, totalWindows = windows.size();
   for (i = 0; i != totalWindows; i++) {
+      totalWindows = windows.size();
     Window* window = windows[i];
     if (!window->getVisible())
       continue;
