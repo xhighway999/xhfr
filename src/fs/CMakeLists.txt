@@ -9,5 +9,5 @@ add_library(fs STATIC
 )
 #manually include physfs since the tharget does not
 target_include_directories(fs PUBLIC "../../external/physfs/src/")
-target_link_libraries(fs physfs-static core)
+target_link_libraries(fs physfs-static xhfr_core)
 
