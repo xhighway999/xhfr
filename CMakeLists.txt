@@ -7,6 +7,7 @@ option(xhfr_FreeType "Use FreeType" ON)
 option(xhfr_PhysFs_external "Use System/Parent PhysFS library" OFF)
 option(xhfr_stb_external "Use System/Parent stb library" OFF)
 option(xhfr_spdlog_external "Use System/Parent spdlog library" OFF)
+option(xhfr_sol2_external "Use System/Parent sol2 library" OFF)
 
 set(xhfr_Backend "glfw" CACHE STRING "What backend to use. Valid options: glfw, sdl, sdl-ems")
 

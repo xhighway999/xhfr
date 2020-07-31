@@ -19,7 +19,10 @@ endif()
 if(NOT ${xhfr_stb_external})
   add_subdirectory(stb)
 endif()
-add_subdirectory(sol2)
+if(NOT ${xhfr_sol2_external})
+    add_subdirectory(sol2)
+endif()
+
 if(NOT ${xhfr_PhysFs_external})
     #stop physfs conflicting with glfw
     set(PHYSFS_TARGETNAME_DOCS "physfs_docs" CACHE STRING "physfs_docs" )
