@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include <map>
 #include "WindowManagerBase.hpp"
 #include "imgui.h"
 
@@ -22,6 +23,8 @@ class Window {
   bool getVisible();
   virtual void onClosePressed() {}
 
+  void setColor(ImGuiCol colorName, ImVec4 color);
+
   const ImGuiWindowFlags& getFlags();
 
   void destroy();
@@ -34,6 +37,7 @@ class Window {
   bool destroyWindow = false;
   bool visible = false;
   std::string windowTitle = "";
+  std::map<ImGuiCol, ImVec4> styleSheet;
 };
 
 }  // namespace xhfr

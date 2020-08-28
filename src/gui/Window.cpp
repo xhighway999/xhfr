@@ -18,6 +18,10 @@ bool xhfr::Window::getVisible() {
   return visible;
 }
 
+void xhfr::Window::setColor(ImGuiCol colorName, ImVec4 color) {
+  styleSheet[colorName] = color;
+}
+
 void xhfr::Window::setVisible(bool vis) {
   if (!xhfr::wm->hasWindow(this) && vis) {
     xhfr::wm->addWindow(this);

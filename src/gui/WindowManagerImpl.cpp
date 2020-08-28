@@ -21,11 +21,18 @@ void xhfr::WindowManagerImpl::manageWindows() {
   // this is a little weird to account for size changes while in loop
   size_t i = 0, totalWindows = windows.size();
   for (i = 0; i != totalWindows; i++) {
-      totalWindows = windows.size();
+    totalWindows = windows.size();
     Window* window = windows[i];
     if (!window->getVisible())
       continue;
     bool open = true;
+
+    // apply style sheet
+    auto sheet = window->styleSheet;
+    for (auto& pair : sheet) {
+      ImGui::PushStyleColor(pair.first, pair.second);
+    }
+
     if (ImGui::Begin(window->getTitle().c_str(), &open, window->getFlags())) {
       if (!open) {
         window->destroyWindow = true;
@@ -33,6 +40,7 @@ void xhfr::WindowManagerImpl::manageWindows() {
       window->onDraw();
     }
     ImGui::End();
+    ImGui::PopStyleColor(sheet.size());
   }
 
   // handle window destruction
