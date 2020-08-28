@@ -3,20 +3,24 @@
 namespace xhfr {
 
 Image::Image() {
-  glGenTextures(1, &texture);
+  textureref = std::make_shared<GLuint>();
+  glGenTextures(1, textureref.get());
 }
 
 Image::Image(const char* path) {
-  glGenTextures(1, &texture);
+  textureref = std::make_shared<GLuint>();
+  glGenTextures(1, textureref.get());
   loadImageFromFile(path);
 }
 
 Image::~Image() {
-  glDeleteTextures(1, &texture);
+  if (textureref.unique()) {
+    glDeleteTextures(1, textureref.get());
+  }
 }
 
 ImTextureID Image::textureID() {
-  return reinterpret_cast<ImTextureID>(texture);
+  return reinterpret_cast<ImTextureID>(*textureref.get());
 }
 
 void Image::setInterpolationMode(GLenum interp) {
@@ -53,7 +57,7 @@ void Image::loadImageFromRaw(const unsigned char* data,
                              int w,
                              int h,
                              int channels) {
-  glBindTexture(GL_TEXTURE_2D, texture);
+  glBindTexture(GL_TEXTURE_2D, *textureref.get());
   // set the texture wrapping parameters
 #if 1
   constexpr auto wrapMode = GL_CLAMP_TO_EDGE;
@@ -70,6 +74,11 @@ void Image::loadImageFromRaw(const unsigned char* data,
   if (channels == 1) {
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, w, h, 0, GL_RED, GL_UNSIGNED_BYTE,
                  data);
+    GLint swizzleMask[] = {GL_RED, GL_RED, GL_RED, GL_NONE};
+    glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_R, &swizzleMask[0]);
+    glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_G, &swizzleMask[1]);
+    glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_B, &swizzleMask[2]);
+    // glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_A, &swizzleMask[3]);
   } else if (channels == 2) {
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RG8, w, h, 0, GL_RG, GL_UNSIGNED_BYTE,
                  data);
@@ -100,7 +109,8 @@ void Image::loadImageFromRaw(int w,
                              GLint format,
                              GLint type,
                              GLenum internalFormat) {
-  glBindTexture(GL_TEXTURE_2D, texture);
+  GLuint i = *textureref.get();
+  glBindTexture(GL_TEXTURE_2D, *textureref.get());
 
   if (format == GL_DEPTH_COMPONENT) {
     glTexImage2D(GL_TEXTURE_2D, 0, format, w, h, 0, format, type, data);

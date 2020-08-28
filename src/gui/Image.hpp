@@ -15,8 +15,8 @@ class Image {
   Image();
   Image(const char* path);
   ~Image();
-  Image(const Image&) = delete;
-  void operator=(const Image&) = delete;
+  // Image(const Image&) = delete;
+  // void operator=(const Image&) = delete;
   ImTextureID textureID();
   void setInterpolationMode(GLenum interp);
   bool loadImageFromFile(const char* path);
@@ -33,7 +33,10 @@ class Image {
 
  private:
   int x, y, channels;
-  GLuint texture = 0;
+
+  using TextureRef = std::shared_ptr<GLuint>;
+
+  TextureRef textureref = 0;
 };
 
 }  // namespace xhfr
