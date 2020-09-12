@@ -98,7 +98,7 @@ bool backend_init(const char* appName, int w, int h) {
 #endif
   if (err) {
     fprintf(stderr, "Failed to initialize OpenGL loader!\n");
-    return 1;
+    return false;
   }
   return true;
 }
