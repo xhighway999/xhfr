@@ -22,6 +22,11 @@ endif()
 if(NOT ${xhfr_sol2_external})
     add_subdirectory(sol2)
 endif()
+if(NOT ${xhfr_json_external})
+
+    set(JSON_BuildTests OFF CACHE INTERNAL "")
+  add_subdirectory(json)
+endif()
 
 if(NOT ${xhfr_PhysFs_external})
     #stop physfs conflicting with glfw

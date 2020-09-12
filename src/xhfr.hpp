@@ -1,5 +1,6 @@
 #pragma once
 
+#include "core/ApplicationSettings.hpp"
 #include "core/debug.hpp"
 #include "fs/fs.hpp"
 #include "gui/Dockspace.hpp"
