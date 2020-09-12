@@ -9,8 +9,16 @@ bool fs::init(const char* path) {
   XHFR_INFO("Making fs persistent");
   // assume app wants to store data
 
-  EM_ASM(FS.mkdir('/persistent'); FS.mount(IDBFS, {}, '/persistent');
-         FS.syncfs(function(err) { assert(!err); }););
+  EM_ASM(done = false; FS.mkdir('/persistent');
+         FS.mount(IDBFS, {}, '/persistent'); FS.syncfs(
+             true,
+             function(err) {
+               assert(!err);
+               // dirty hack to wait until finished
+               console.log("...Sync done");
+             });
+
+  );
 #endif
   XHFR_INFO("Starting Physfs subsystem");
   if (!PHYSFS_init(path)) {
@@ -156,6 +164,51 @@ void fs::flush() {
 #ifdef __EMSCRIPTEN__
   EM_ASM(FS.syncfs(function(err) { assert(!err); }););
 #endif
+}
+
+fs::FileInfo fs::getFileInfo(std::string_view path) {
+  FileInfo f;
+  if (!fs::exists(path)) {
+    throw std::runtime_error("File not found");
+  }
+  if (path[0] == ':') {
+    std::string str;
+    str = path.substr(1);
+    PHYSFS_Stat stat;
+
+    // TODO: fix name
+    PHYSFS_stat(str.c_str(), &stat);
+    // f.name = PHYSFS_
+    f.path = str + f.name;
+    f.path = ":" + f.path;
+    f.type = static_cast<FileType>(stat.filetype);
+    f.size = stat.filesize;
+    f.readonly = stat.readonly;
+  } else {
+    std::filesystem::path p(path);
+    FileInfo f;
+    f.path = p;
+    f.name = p.filename();
+
+    auto perms = std::filesystem::status(p).permissions();
+
+    // TODO: implement properly
+    // assume we are the owner
+    f.readonly = (perms & std::filesystem::perms::owner_write) ==
+                 std::filesystem::perms::none;
+
+    if (is_regular_file(p)) {
+      f.size = file_size(p);
+      f.type = Regular;
+    } else if (is_directory(p)) {
+      f.type = Directory;
+    } else if (is_symlink(p)) {
+      f.type = Symlink;
+    } else {
+      f.type = Other;
+    }
+  }
+  return f;
 }
 
 }  // namespace xhfr

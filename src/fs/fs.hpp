@@ -29,6 +29,8 @@ void shutdown();
 bool exists(std::string_view path);
 bool createDirectory(std::string_view path);
 std::vector<FileInfo> listFiles(std::string_view path, bool recursiv = false);
+FileInfo getFileInfo(std::string_view path);
+
 bool deleteFile(std::string_view path);
 void flush();
 };  // namespace fs

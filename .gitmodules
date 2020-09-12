@@ -37,3 +37,6 @@
 	path = external/spdlog
 	url = git@github.com:gabime/spdlog.git
 	branch = v2.x
+[submodule "external/json"]
+	path = external/json
+	url = git@github.com:nlohmann/json.git
