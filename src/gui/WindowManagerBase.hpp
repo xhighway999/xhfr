@@ -2,6 +2,7 @@
 #define CORE_WINDOWMANAGER_H
 
 #include <functional>
+#include "DropEvent.hpp"
 
 namespace xhfr {
 class Window;
@@ -15,7 +16,9 @@ class WindowManagerBase {
   virtual void setMainMenuBarFunction(
       std::function<void()> menuBarFunction) = 0;
   virtual ~WindowManagerBase() {}
+
   virtual bool MainMenuBarUsed() = 0;
+  virtual std::function<void(DropEvent)> getDropEventCallback() = 0;
 };
 extern WindowManagerBase* wm;
 }  // namespace xhfr

@@ -67,3 +67,15 @@ void xhfr::WindowManagerImpl::setMainMenuBarFunction(
 bool xhfr::WindowManagerImpl::MainMenuBarUsed() {
   return mainMenuBarUsed;
 }
+
+std::function<void(xhfr::DropEvent)>
+xhfr::WindowManagerImpl::getDropEventCallback() {
+  return [&](DropEvent event) {
+    size_t i = 0, totalWindows = windows.size();
+    for (i = 0; i != totalWindows; i++) {
+      totalWindows = windows.size();
+      Window* window = windows[i];
+      window->onDrop(event);
+    }
+  };
+}

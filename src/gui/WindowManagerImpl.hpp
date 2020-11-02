@@ -20,10 +20,12 @@ class WindowManagerImpl : public WindowManagerBase {
       std::function<void()> menuBarFunction) override;
   virtual bool MainMenuBarUsed() override;
   virtual ~WindowManagerImpl() {}
+  virtual std::function<void(DropEvent)> getDropEventCallback() override;
 
  private:
   std::vector<Window*> windows;
   std::function<void()> mainMenuBarFunction;
+  std::function<void(DropEvent)> dropEventCallback;
   bool mainMenuBarUsed = false;
 };
 

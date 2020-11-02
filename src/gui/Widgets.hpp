@@ -4,6 +4,8 @@
 
 #include <string>
 
+#include "widgets/Bezier.hpp"
+
 #include "imgui.h"
 namespace ImGui {
 void AutoPlot(const char* label,

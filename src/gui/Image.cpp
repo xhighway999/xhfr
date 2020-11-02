@@ -42,13 +42,13 @@ bool Image::loadImageFromFile(const char* path) {
   // image needs to have 4 channels for greyscale
 #endif
   stbi_uc* imgdata = stbi_load_from_memory(data, s, &x, &y, &channels, desired);
+  free(data);
   if (!imgdata)
     return false;
 #ifdef __EMSCRIPTEN__
   channels = desired;
 #endif
   loadImageFromRaw(imgdata, x, y, channels);
-
   stbi_image_free(imgdata);
   return true;
 }

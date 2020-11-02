@@ -6,7 +6,6 @@
 #include <map>
 #include "WindowManagerBase.hpp"
 #include "imgui.h"
-
 namespace xhfr {
 
 class Window {
@@ -28,6 +27,7 @@ class Window {
   const ImGuiWindowFlags& getFlags();
 
   void destroy();
+  virtual void onDrop(DropEvent) {}
 
  protected:
   void setFlag(ImGuiWindowFlags flag, bool enabled = true);

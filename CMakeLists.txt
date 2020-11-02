@@ -9,7 +9,7 @@ option(xhfr_stb_external "Use System/Parent stb library" OFF)
 option(xhfr_spdlog_external "Use System/Parent spdlog library" OFF)
 option(xhfr_sol2_external "Use System/Parent sol2 library" OFF)
 option(xhfr_json_external "Use System/Parent json library" ON)
-
+option(xhfr_audio "Build xhfr audio module" ON)
 
 set(xhfr_Backend "glfw" CACHE STRING "What backend to use. Valid options: glfw, sdl, sdl-ems")
 
@@ -25,6 +25,7 @@ endif()
 include_directories(PUBLIC external)
 add_subdirectory(external)
 add_subdirectory(src)
+
 
 macro(trs_add input output type)
     IF(CMAKE_CROSSCOMPILING)

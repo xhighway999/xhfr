@@ -19,6 +19,8 @@
 #include IMGUI_IMPL_OPENGL_LOADER_CUSTOM
 #endif
 
+#include <functional>
+#include "../DropEvent.hpp"
 #include "backend_keycodes.hpp"
 
 namespace xhfr {
@@ -29,4 +31,5 @@ void backend_new_frame();
 void backend_shutdown();
 bool backend_should_close();
 bool backend_viewports_support();
+void backend_set_drag_drop_callback(std::function<void(xhfr::DropEvent)> f);
 }  // namespace xhfr

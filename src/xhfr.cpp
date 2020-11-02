@@ -129,6 +129,7 @@ int xhfr::init(int argc, char* argv[], const char* appName, int w, int h) {
   setupTheme();
   // allocate the window manager
   wm = new WindowManagerImpl();
+  backend_set_drag_drop_callback(wm->getDropEventCallback());
   return 0;
 }
 

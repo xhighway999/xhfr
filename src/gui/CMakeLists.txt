@@ -2,6 +2,7 @@ project(gui)
 cmake_minimum_required(VERSION 3.14.5)
 
 add_subdirectory(backends)
+add_subdirectory(widgets)
 
 if(${xhfr_FreeType})
     set(IMGUI_FREETYPE imgui_freetype.h imgui_freetype.cpp)
@@ -21,6 +22,7 @@ add_library(gui STATIC
     WindowManagerImpl.cpp
     Fonts.hpp
     Fonts.cpp
+    DropEvent.hpp
     ${IMGUI_FREETYPE}
 )
 
@@ -30,4 +32,4 @@ if(${xhfr_FreeType})
 endif()
 
 
-target_link_libraries(gui imgui fs stb backend)
+target_link_libraries(gui imgui fs stb backend widgets)

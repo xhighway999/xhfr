@@ -4,7 +4,15 @@ set (CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(gui)
 add_subdirectory(fs)
+
+if(${xhfr_audio})
+    add_subdirectory(audio)
+endif()
+
+
 add_subdirectory(core)
+
+
 
 add_library(xhfr STATIC
     xhfr.hpp

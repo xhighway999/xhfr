@@ -1,7 +1,8 @@
 #include "sdl2_backend.hpp"
 
 namespace xhfr {
-bool done = false;
+bool done = false, hasDragDropCallback;
+std::function<void(DropEvent)> dragDropCallback;
 SDL_Window* window;
 SDL_Surface transp_surface;
 const char* glsl_version = "#version 130";
@@ -13,11 +14,12 @@ bool backend_init(const char* appName, int w, int h) {
   // issues on a minority of Windows systems, depending on whether
   // SDL_INIT_GAMECONTROLLER is enabled or disabled.. updating to latest version
   // of SDL is recommended!)
-  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) !=
-      0) {
+  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER |
+               SDL_INIT_AUDIO) != 0) {
     printf("Error: %s\n", SDL_GetError());
     return 0;
   }
+  SDL_EventState(SDL_DROPFILE, SDL_ENABLE);
 
   // Decide GL+GLSL versions
 #if __APPLE__
@@ -125,6 +127,16 @@ void backend_new_frame() {
         event.window.windowID == SDL_GetWindowID(window))
 
       done = true;
+
+    if (event.type == SDL_DROPFILE) {
+      if (hasDragDropCallback) {
+        DropEvent e;
+        e.dropEventType = DropEvent::File;
+        e.data = event.drop.file;
+        SDL_free(event.drop.file);
+        dragDropCallback(e);
+      }
+    }
   }
   // Start the Dear ImGui frame
   ImGui_ImplOpenGL3_NewFrame();
@@ -148,6 +160,11 @@ bool backend_viewports_support() {
 void backend_init_platform_impl() {
   ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
   ImGui_ImplOpenGL3_Init(glsl_version);
+}
+
+void backend_set_drag_drop_callback(std::function<void(DropEvent)> f) {
+  dragDropCallback = f;
+  hasDragDropCallback = true;
 }
 
 }  // namespace xhfr

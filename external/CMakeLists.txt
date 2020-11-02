@@ -37,6 +37,16 @@ if(${xhfr_FreeType})
     include(cmakescripts/freetype.cmake)
 endif()
 
+
+#dependencies required for xhfr audio
+
+if(${xhfr_audio})
+SET(wave_enable_tests OFF CACHE BOOL "" FORCE)
+    add_subdirectory(wave)
+endif()
+
+
+
 if(${xhfr_Backend} STREQUAL "sdl")
     add_subdirectory(glad)
     add_subdirectory(sdl)

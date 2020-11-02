@@ -83,7 +83,7 @@ bool backend_init(const char* appName, int w, int h) {
   if (window == NULL)
     return 1;
   glfwMakeContextCurrent(window);
-  glfwSwapInterval(1);  // Enable vsync
+  glfwSwapInterval(0);  // Disable vsync
 
   // Initialize OpenGL loader
 #if defined(IMGUI_IMPL_OPENGL_LOADER_GL3W)
