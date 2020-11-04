@@ -15,7 +15,8 @@ namespace xhfr {
 namespace fs {
 enum FileType { Regular, Directory, Symlink, Other };
 struct FileInfo {
-  std::string name, path;
+  std::string name;
+  std::string path;
   long long size;
   FileType type;
   bool readonly;

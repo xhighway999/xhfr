@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 2.6)
 
 add_library(backend STATIC
     Backend.hpp
+    Backend.cpp
     )
 target_compile_definitions(backend PRIVATE XHFR_GL_BACKEND=${BACKEND})
 

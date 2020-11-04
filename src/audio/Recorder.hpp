@@ -5,7 +5,7 @@
 #include <thread>
 #include <vector>
 
-#include "SDL2/SDL.h"
+#include "SDL.h"
 
 class Recorder {
  public:

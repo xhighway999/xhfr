@@ -48,6 +48,15 @@ macro(trs_add input output type)
     add_dependencies(xhfr UPDATE_RESOURCES)
 endmacro()
 
+if(WIN32)
+    #force msvc to use char, like every *sane* compiler
+    target_compile_options(xhfr PUBLIC /utf-8)
+    #force sdl to not fuck up the main function
+    target_compile_definitions(xhfr PUBLIC SDL_MAIN_HANDLED)
+endif(WIN32)
+add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+
 trs_add(${CMAKE_CURRENT_SOURCE_DIR}/../ ${CMAKE_CURRENT_SOURCE_DIR}/../data.c c)
 
 

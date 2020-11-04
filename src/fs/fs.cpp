@@ -92,8 +92,8 @@ std::vector<fs::FileInfo> fs::listFiles(std::string_view path, bool recursive) {
   } else {
     auto addNormalFile = [&dirfiles](const auto& p) {
       FileInfo f;
-      f.path = p.path();
-      f.name = p.path().filename();
+      f.path = p.path().string();
+      f.name = p.path().filename().string();
 
       auto perms = std::filesystem::status(p.path()).permissions();
 
@@ -187,8 +187,8 @@ fs::FileInfo fs::getFileInfo(std::string_view path) {
   } else {
     std::filesystem::path p(path);
     FileInfo f;
-    f.path = p;
-    f.name = p.filename();
+    f.path = p.string();
+    f.name = p.filename().string();
 
     auto perms = std::filesystem::status(p).permissions();
 

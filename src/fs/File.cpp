@@ -32,7 +32,8 @@ bool File::open(std::string_view path, bool write) {
     isPhFile = true;
     return phFile;
   }
-  file = fopen(path.data(), write ? "w" : "r");
+
+  file = fopen(path.data(), write ? "bw" : "rb");
   if (!write) {
     fseek(file, 0L, SEEK_END);
     fileSize = ftell(file);
@@ -41,7 +42,7 @@ bool File::open(std::string_view path, bool write) {
   return file;
 }
 
-ssize_t File::size() {
+long long int File::size() {
   if (isPhFile)
     return PHYSFS_fileLength(phFile);
   else {
@@ -69,7 +70,7 @@ int64_t File::read(void* buffer, size_t size) {
 }
 
 std::string File::readAll() {
-  ssize_t fsize = size();
+  long long int fsize = size();
   std::string buffer;
   buffer.resize(fsize);
   read(buffer.data(), fsize);

@@ -1,0 +1,3 @@
+--compiling instructions for windows--
+-download and install python to PATH for glad
+disable freetype (for now)

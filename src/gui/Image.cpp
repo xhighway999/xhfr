@@ -1,5 +1,5 @@
 #include "Image.hpp"
-
+#include "../core/debug.hpp"
 namespace xhfr {
 
 Image::Image() {
@@ -43,8 +43,10 @@ bool Image::loadImageFromFile(const char* path) {
 #endif
   stbi_uc* imgdata = stbi_load_from_memory(data, s, &x, &y, &channels, desired);
   free(data);
-  if (!imgdata)
+  if (!imgdata) {
+      XHFR_ERROR( stbi_failure_reason());
     return false;
+  }
 #ifdef __EMSCRIPTEN__
   channels = desired;
 #endif

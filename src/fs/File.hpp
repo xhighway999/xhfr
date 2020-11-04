@@ -14,7 +14,7 @@ class File {
   File(std::string_view path, bool write = false) /*openmode*/;
   ~File();
   bool open(std::string_view path, bool write);  // open mode
-  ssize_t size();
+  long long int size();
   void close();
   int64_t read(void* buffer, size_t size);
   std::string readAll();

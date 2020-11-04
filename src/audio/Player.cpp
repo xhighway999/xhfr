@@ -2,7 +2,7 @@
 
 #include "wave/file.h"
 
-#include "SDL2/SDL.h"
+#include "SDL.h"
 
 void Player::audioPlayingCallback(void* userdata, uint8_t* stream, int len) {
   Player* rec = (Player*)userdata;
@@ -83,7 +83,8 @@ void Player::setPath(const std::filesystem::path& value) {
 
   // luckly sdl has a function for this so i deont have to mess with thw wave
   // library
-  if (!SDL_LoadWAV(value.c_str(), &playSpec, &buffer, &lengthBytes)) {
+
+  if (!SDL_LoadWAV(value.string().c_str(), &playSpec, &buffer, &lengthBytes)) {
     abort();
   }
 }

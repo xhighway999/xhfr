@@ -8,5 +8,5 @@ add_library(xhfr_audio STATIC
     Recorder.cpp
 )
 #manually include physfs since the tharget does not
-target_link_libraries(xhfr_audio PUBLIC wave xhfr_core)
+target_link_libraries(xhfr_audio PUBLIC wave xhfr_core SDL2-static)
 

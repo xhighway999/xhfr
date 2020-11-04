@@ -1,5 +1,6 @@
 #pragma once
 
+#define SDL_MAIN_HANDLED
 #include "core/ApplicationSettings.hpp"
 #include "core/debug.hpp"
 #include "fs/fs.hpp"
