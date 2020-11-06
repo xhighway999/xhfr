@@ -60,6 +60,15 @@ void Image::loadImageFromRaw(const unsigned char* data,
                              int h,
                              int channels) {
   glBindTexture(GL_TEXTURE_2D, *textureref.get());
+
+  //opengl has the requirement that each row is divisible by 4 for aligment purposes. Check if
+  //this is the case and, if not, change the aligment (propably hurting performance).
+  if (w % 4 != 0) {
+      glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+      XHFR_WARN("Texture / Image cannot be divided by 4 ... aligment changed");
+  }
+
+
   // set the texture wrapping parameters
 #if 1
   constexpr auto wrapMode = GL_CLAMP_TO_EDGE;
