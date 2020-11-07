@@ -3,7 +3,7 @@
 #include <cmath>
 #include <fstream>
 #include <iostream>
-
+#include <string.h>
 #include "wave/file.h"
 
 void Recorder::audioRecordingCallback(void* userdata,

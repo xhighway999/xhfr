@@ -1,7 +1,7 @@
 #include "Player.hpp"
 
 #include "wave/file.h"
-
+#include <string.h>
 #include "SDL.h"
 
 void Player::audioPlayingCallback(void* userdata, uint8_t* stream, int len) {

@@ -29,7 +29,7 @@ bool backend_init(const char* appName, int w, int h) {
 #if _WIN32
    r = SDL_AudioInit("DirectSound");
 #else
-  r = SDL_AudioInit();
+  r = SDL_AudioInit(NULL);
 #endif
   if (r != 0) {
       printf("Error: %s\n", SDL_GetError());
