@@ -7,11 +7,13 @@ option(xhfr_FreeType "Use FreeType" ON)
 option(xhfr_PhysFs_external "Use System/Parent PhysFS library" OFF)
 option(xhfr_stb_external "Use System/Parent stb library" OFF)
 option(xhfr_spdlog_external "Use System/Parent spdlog library" OFF)
-option(xhfr_sol2_external "Use System/Parent sol2 library" OFF)
 option(xhfr_json_external "Use System/Parent json library" ON)
 option(xhfr_audio "Build xhfr audio module" ON)
 
-set(xhfr_Backend "glfw" CACHE STRING "What backend to use. Valid options: glfw, sdl, sdl-ems")
+set(xhfr_trs_search_path "${CMAKE_CURRENT_SOURCE_DIR}/../" CACHE STRING "trs search path")
+set(xhfr_trs_output_path "${CMAKE_CURRENT_SOURCE_DIR}/../data.c" CACHE STRING "trs output path")
+
+set(xhfr_Backend "sdl" CACHE STRING "What backend to use. Valid options: glfw, sdl, sdl-ems")
 
 
 set (CMAKE_CXX_STANDARD 17)
@@ -57,7 +59,8 @@ endif(WIN32)
 add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
 add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 
-trs_add(${CMAKE_CURRENT_SOURCE_DIR}/../ ${CMAKE_CURRENT_SOURCE_DIR}/../data.c c)
+#trs_add(${CMAKE_CURRENT_SOURCE_DIR}/../ ${CMAKE_CURRENT_SOURCE_DIR}/../data.c c)
+trs_add(${xhfr_trs_search_path} ${xhfr_trs_output_path} c)
 
 
 # strip -s -R .comment -R .gnu.version --strip-unneeded

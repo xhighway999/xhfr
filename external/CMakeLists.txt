@@ -4,13 +4,6 @@ cmake_minimum_required(VERSION 3.14.5)
 
 include(cmakescripts/imgui.cmake)
 include(cmakescripts/glfw.cmake)
-if(${xhfr_LuaJit})
-    include(cmakescripts/luajit.cmake)
-else()
-    add_subdirectory(lua)
-    #needed for emscripten
-    include_directories(SYSTEM lua/src)
-endif()
 
 if(NOT ${xhfr_spdlog_external})
     add_subdirectory(spdlog)
@@ -19,9 +12,7 @@ endif()
 if(NOT ${xhfr_stb_external})
   add_subdirectory(stb)
 endif()
-if(NOT ${xhfr_sol2_external})
-    add_subdirectory(sol2)
-endif()
+
 if(NOT ${xhfr_json_external})
 
     set(JSON_BuildTests OFF CACHE INTERNAL "")
