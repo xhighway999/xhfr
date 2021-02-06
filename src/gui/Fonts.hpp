@@ -8,6 +8,9 @@
 #include "imgui_freetype.h"
 #endif
 
+#include <utility>
+#include <vector>
+
 namespace xhfr {
 
 class FontManager {
@@ -21,7 +24,10 @@ class FontManager {
   ImFont* addFont(const char* path, float size, ImFontConfig* cfg = nullptr);
   void build();
 
+  std::vector<std::pair<ImFontConfig, std::string>> getInstalledFonts() const;
+
  private:
+  std::vector<std::pair<ImFontConfig, std::string>> installedFonts;
 };
 
 };  // namespace xhfr

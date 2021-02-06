@@ -15,6 +15,7 @@ void FontManager::addDefaultFont() {
 ImFont* FontManager::addFont(const char* path, float size, ImFontConfig* cfg) {
   ImGuiIO& io = ImGui::GetIO();
   // io.Fonts->AddFontDefault();
+  installedFonts.push_back({*cfg, path});
   xhfr::File file(path);
   ImFontConfig font_cfg = cfg ? *cfg : ImFontConfig();
   font_cfg.FontDataOwnedByAtlas = false;
@@ -36,6 +37,11 @@ void FontManager::build() {
 #else
   io.Fonts->Build();
 #endif
+}
+
+std::vector<std::pair<ImFontConfig, std::string> >
+FontManager::getInstalledFonts() const {
+  return installedFonts;
 }
 
 }  // namespace xhfr
