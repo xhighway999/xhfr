@@ -43,3 +43,6 @@
 [submodule "external/wave"]
 	path = external/wave
 	url = https://github.com/audionamix/wave.git
+[submodule "external/nanovg-nanort"]
+	path = external/nanovg-nanort
+	url = https://github.com/syoyo/nanovg-nanort.git

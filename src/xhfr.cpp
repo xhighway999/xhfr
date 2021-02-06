@@ -151,6 +151,7 @@ void xhfr::new_frame() {
 
 int xhfr::main() {
   FontManager::getInstance().build();
+
   // Main loop
 #ifdef __EMSCRIPTEN__
   emscripten_set_main_loop_arg(emscripten_main_loop, NULL, 0, true);
