@@ -20,7 +20,7 @@ Image::~Image() {
 }
 
 ImTextureID Image::textureID() {
-  return reinterpret_cast<ImTextureID>(*textureref.get());
+  return reinterpret_cast<ImTextureID>(*textureref);
 }
 
 void Image::setInterpolationMode(GLenum interp) {
@@ -44,7 +44,7 @@ bool Image::loadImageFromFile(const char* path) {
   stbi_uc* imgdata = stbi_load_from_memory(data, s, &x, &y, &channels, desired);
   free(data);
   if (!imgdata) {
-      XHFR_ERROR( stbi_failure_reason());
+    XHFR_ERROR(stbi_failure_reason());
     return false;
   }
 #ifdef __EMSCRIPTEN__
@@ -59,15 +59,16 @@ void Image::loadImageFromRaw(const unsigned char* data,
                              int w,
                              int h,
                              int channels) {
-  glBindTexture(GL_TEXTURE_2D, *textureref.get());
+  GLuint i = *textureref;
+  glBindTexture(GL_TEXTURE_2D, i);
 
-  //opengl has the requirement that each row is divisible by 4 for aligment purposes. Check if
-  //this is the case and, if not, change the aligment (propably hurting performance).
+  // opengl has the requirement that each row is divisible by 4 for aligment
+  // purposes. Check if this is the case and, if not, change the aligment
+  // (propably hurting performance).
   if (w % 4 != 0) {
-      glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-      XHFR_WARN("Texture / Image cannot be divided by 4 ... aligment changed");
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    XHFR_WARN("Texture / Image cannot be divided by 4 ... aligment changed");
   }
-
 
   // set the texture wrapping parameters
 #if 1
@@ -78,7 +79,9 @@ void Image::loadImageFromRaw(const unsigned char* data,
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapMode);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapMode);
   // set texture filtering parameters
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
+                  GL_LINEAR_MIPMAP_LINEAR);  // needed to use this filter for
+                                             // mindmaps, not GL_LINEAR
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
   // load image, create texture and generate mipmaps
 
@@ -120,8 +123,7 @@ void Image::loadImageFromRaw(int w,
                              GLint format,
                              GLint type,
                              GLenum internalFormat) {
-  GLuint i = *textureref.get();
-  glBindTexture(GL_TEXTURE_2D, *textureref.get());
+  glBindTexture(GL_TEXTURE_2D, *textureref);
 
   if (format == GL_DEPTH_COMPONENT) {
     glTexImage2D(GL_TEXTURE_2D, 0, format, w, h, 0, format, type, data);
