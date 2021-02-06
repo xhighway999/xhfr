@@ -1,8 +1,8 @@
 #pragma once
 
-#include "SDL.h"
 #include <filesystem>
 #include <vector>
+#include "SDL.h"
 
 class Player {
  public:

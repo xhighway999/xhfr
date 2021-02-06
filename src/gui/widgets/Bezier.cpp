@@ -2,8 +2,6 @@
 
 namespace ImGui {
 
-
-
 float BezierValue(float dt01, float P[]) {
   enum { STEPS = 256 };
   ImVec2 Q[4] = {{0, 0}, {P[0], P[1]}, {P[2], P[3]}, {1, 1}};
@@ -75,9 +73,10 @@ int Bezier(const char* label, float P[], int flags) {
   if (!(flags & ImGuiBezierFlags_DisablePresets)) {
     bool reload = 0;
     ImGui::PushID(label);
-    if (ImGui::ArrowButton("##lt",
-                           ImGuiDir_Left)) {  // ImGui::ArrowButton(ImGui::GetCurrentWindow()->GetID("##lt"),
-                                              // ImGuiDir_Left, ImVec2(0, 0), 0)
+    if (ImGui::ArrowButton(
+            "##lt",
+            ImGuiDir_Left)) {  // ImGui::ArrowButton(ImGui::GetCurrentWindow()->GetID("##lt"),
+                               // ImGuiDir_Left, ImVec2(0, 0), 0)
       if (--P[4] >= 0)
         reload = 1;
       else
@@ -102,8 +101,9 @@ int Bezier(const char* label, float P[], int flags) {
     ImGui::SameLine();
 
     if (ImGui::ArrowButton(
-            "##rt", ImGuiDir_Right)) {  // ImGui::ArrowButton(ImGui::GetCurrentWindow()->GetID("##rt"),
-                                        // ImGuiDir_Right, ImVec2(0, 0), 0)
+            "##rt",
+            ImGuiDir_Right)) {  // ImGui::ArrowButton(ImGui::GetCurrentWindow()->GetID("##rt"),
+                                // ImGuiDir_Right, ImVec2(0, 0), 0)
       if (++P[4] < IM_ARRAYSIZE(presets))
         reload = 1;
       else

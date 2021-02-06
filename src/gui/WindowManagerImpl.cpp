@@ -44,13 +44,15 @@ void xhfr::WindowManagerImpl::manageWindows() {
   }
 
   // handle window destruction
-  windows.erase(std::remove_if(windows.begin(), windows.end(), [](Window* w) {
-    if (w->destroyWindow) {
-      w->onClosePressed();
-      return true;
-    }
-    return false;
-  }),windows.end());
+  windows.erase(std::remove_if(windows.begin(), windows.end(),
+                               [](Window* w) {
+                                 if (w->destroyWindow) {
+                                   w->onClosePressed();
+                                   return true;
+                                 }
+                                 return false;
+                               }),
+                windows.end());
 }
 
 void xhfr::WindowManagerImpl::destroyWindow(xhfr::Window* window) {

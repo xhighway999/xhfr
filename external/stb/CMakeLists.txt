@@ -15,8 +15,8 @@ macro(GenOption OptionName)
     endif()
 endmacro(GenOption)
 
-GenOption(STB_IMAGE_WRITE_IMPLEMENTATION)
-GenOption(STB_IMAGE_IMPLEMENTATION)
-GenOption(STB_LEAKCHECK_IMPLEMENTATION)
+#GenOption(STB_IMAGE_WRITE_IMPLEMENTATION)
+#GenOption(STB_IMAGE_IMPLEMENTATION)
+#GenOption(STB_LEAKCHECK_IMPLEMENTATION)
 
 target_include_directories(stb PUBLIC stb)

@@ -19,7 +19,7 @@ add_library(xhfr STATIC
     xhfr.cpp)
 
 
-target_link_libraries(xhfr PUBLIC sol2 imgui stb gui backend fs xhfr_core spdlog)
+target_link_libraries(xhfr PUBLIC imgui stb gui backend fs xhfr_core spdlog)
 target_include_directories(xhfr INTERFACE ../src)
 
 target_include_directories(xhfr PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
