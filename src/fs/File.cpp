@@ -30,14 +30,18 @@ bool File::open(std::string_view path, bool write) {
       phFile = PHYSFS_openRead(str.c_str());
     }
     isPhFile = true;
+
     return phFile;
   }
 
-  file = fopen(path.data(), write ? "bw" : "rb");
+  file = fopen(path.data(), write ? "wb" : "rb");
   if (!write) {
     fseek(file, 0L, SEEK_END);
     fileSize = ftell(file);
     rewind(file);
+  }
+  if (!file) {
+      XHFR_ERROR("Could not open real file {}", path);
   }
   return file;
 }
