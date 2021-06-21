@@ -34,9 +34,8 @@ bool backend_init(const char* appName, int w, int h) {
   SDL_GetCurrentDisplayMode(0, &current);
   SDL_WindowFlags window_flags = (SDL_WindowFlags)(
       SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
-  g_Window =
-      SDL_CreateWindow("Dear ImGui Emscripten example", SDL_WINDOWPOS_CENTERED,
-                       SDL_WINDOWPOS_CENTERED, 1280, 720, window_flags);
+  g_Window = SDL_CreateWindow(appName, SDL_WINDOWPOS_CENTERED,
+                              SDL_WINDOWPOS_CENTERED, 1280, 720, window_flags);
   g_GLContext = SDL_GL_CreateContext(g_Window);
   if (!g_GLContext) {
     fprintf(stderr, "Failed to initialize WebGL context!\n");
@@ -96,6 +95,11 @@ bool backend_viewports_support() {
 void backend_init_platform_impl() {
   ImGui_ImplSDL2_InitForOpenGL(g_Window, g_GLContext);
   ImGui_ImplOpenGL3_Init(glsl_version);
+}
+
+void backend_set_drag_drop_callback(std::function<void(DropEvent)> f) {
+  // dragDropCallback = f;
+  // hasDragDropCallback = true;
 }
 
 }  // namespace xhfr

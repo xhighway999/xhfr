@@ -4,6 +4,7 @@
 #include "core/ApplicationSettings.hpp"
 #include "core/debug.hpp"
 #include "fs/fs.hpp"
+#include "gui/Canvas.hpp"
 #include "gui/Dockspace.hpp"
 #include "gui/Fonts.hpp"
 #include "gui/Image.hpp"
@@ -19,6 +20,7 @@
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>
 void emscripten_main_loop(void* arg);
+#include "core/EmscriptenExtentions.hpp"
 #endif
 
 namespace xhfr {

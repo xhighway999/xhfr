@@ -155,4 +155,8 @@ bool backend_viewports_support() {
   return 1;
 }
 
+void backend_set_drag_drop_callback(std::function<void(xhfr::DropEvent)> f) {
+  XHFR_WARN("No drag/drop callback implemented for glfw backend");
+}
+
 }  // namespace xhfr

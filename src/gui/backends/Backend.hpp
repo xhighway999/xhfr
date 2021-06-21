@@ -22,7 +22,6 @@
 #include <functional>
 #include "../DropEvent.hpp"
 #include "backend_keycodes.hpp"
-#include <functional>
 
 namespace xhfr {
 bool backend_init(const char* appName = "xhfr", int w = 1270, int h = 800);

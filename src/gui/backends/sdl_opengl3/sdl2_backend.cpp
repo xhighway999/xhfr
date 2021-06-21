@@ -1,7 +1,7 @@
 #include "sdl2_backend.hpp"
 
 #ifdef _WIN32
-     #include "Windows.h"
+#include "Windows.h"
 #endif
 
 namespace xhfr {
@@ -13,27 +13,27 @@ const char* glsl_version = "#version 130";
 SDL_GLContext gl_context;
 ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 bool backend_init(const char* appName, int w, int h) {
-
-    SDL_SetMainReady();
+  SDL_SetMainReady();
   // Setup SDL
   // (Some versions of SDL before <2.0.10 appears to have performance/stalling
   // issues on a minority of Windows systems, depending on whether
   // SDL_INIT_GAMECONTROLLER is enabled or disabled.. updating to latest version
   // of SDL is recommended!)
-  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER | SDL_INIT_AUDIO ) != 0) {
+  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER |
+               SDL_INIT_AUDIO) != 0) {
     printf("Error: %s\n", SDL_GetError());
     return 0;
   }
   /*SDL Windows has to audio drivers*/
   int r = 0;
 #if _WIN32
-   r = SDL_AudioInit("DirectSound");
+  r = SDL_AudioInit("DirectSound");
 #else
   r = SDL_AudioInit(NULL);
 #endif
   if (r != 0) {
-      printf("Error: %s\n", SDL_GetError());
-      return 0;
+    printf("Error: %s\n", SDL_GetError());
+    return 0;
   }
   SDL_EventState(SDL_DROPFILE, SDL_ENABLE);
 
@@ -126,6 +126,7 @@ void backend_render() {
 
   SDL_GL_SwapWindow(window);
 }
+
 void backend_new_frame() {
   SDL_Event event;
 

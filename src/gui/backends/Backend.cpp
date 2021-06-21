@@ -1,6 +1,3 @@
 #include "Backend.hpp"
 
-void xhfr::backend_dummy()
-{
-
-}
+void xhfr::backend_dummy() {}

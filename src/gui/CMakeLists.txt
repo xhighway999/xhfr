@@ -23,6 +23,8 @@ add_library(gui STATIC
     Fonts.hpp
     Fonts.cpp
     DropEvent.hpp
+    Canvas.hpp
+    Canvas.cpp
     ${IMGUI_FREETYPE}
 )
 
@@ -32,4 +34,4 @@ if(${xhfr_FreeType})
 endif()
 
 
-target_link_libraries(gui imgui fs stb backend widgets)
+target_link_libraries(gui imgui fs stb backend widgets nanovg-nanort)

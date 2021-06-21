@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.14.5)
 
 include(cmakescripts/imgui.cmake)
 include(cmakescripts/glfw.cmake)
+include(cmakescripts/nanovg-nanort.cmake)
 
 if(NOT ${xhfr_spdlog_external})
     add_subdirectory(spdlog)

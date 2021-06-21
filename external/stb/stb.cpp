@@ -1,3 +1,7 @@
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#define STB_IMAGE_IMPLEMENTATION
+#define STB_LEAKCHECK_IMPLEMENTATION
+#define STB_IMAGE_RESIZE_IMPLEMENTATION
 #include "stb/stb.h"
 #include "stb/stb_c_lexer.h"
 #include "stb/stb_connected_components.h"
@@ -19,4 +23,6 @@
 #include "stb/stb_truetype.h"
 #include "stb/stb_voxel_render.h"
 #include "stb/stretchy_buffer.h"
+
+#undef STB_IMAGE_WRITE_IMPLEMENTATION
 

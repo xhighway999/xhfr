@@ -6,6 +6,8 @@ add_library(xhfr_core STATIC
     debug.cpp
     ApplicationSettings.hpp
     ApplicationSettings.cpp
+    EmscriptenExtentions.hpp
+    EmscriptenExtentions.cpp
 )
 
 
