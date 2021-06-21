@@ -20,6 +20,7 @@ class Image {
   ImTextureID textureID();
   void setInterpolationMode(GLenum interp);
   bool loadImageFromFile(const char* path);
+  bool loadImageFromMemory(const char* data, unsigned size);
   void loadImageFromRaw(const unsigned char* data, int w, int h, int channels);
   void loadImageFromRaw(int w,
                         int h,
