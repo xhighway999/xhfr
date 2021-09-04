@@ -2,7 +2,9 @@
 
 #define SDL_MAIN_HANDLED
 #include "core/ApplicationSettings.hpp"
+#include "core/compat.hpp"
 #include "core/debug.hpp"
+
 #include "fs/fs.hpp"
 #include "gui/Canvas.hpp"
 #include "gui/Dockspace.hpp"

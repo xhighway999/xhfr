@@ -4,6 +4,8 @@ set (CMAKE_CXX_STANDARD 20)
 add_library(xhfr_core STATIC
     debug.hpp
     debug.cpp
+    compat.hpp
+    compat.cpp
     ApplicationSettings.hpp
     ApplicationSettings.cpp
     EmscriptenExtentions.hpp

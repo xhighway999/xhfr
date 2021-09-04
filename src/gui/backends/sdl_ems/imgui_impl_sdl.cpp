@@ -98,7 +98,7 @@ static void ImGui_ImplSDL2_InitPlatformInterface(SDL_Window* window,
 static void ImGui_ImplSDL2_ShutdownPlatformInterface();
 
 EM_JS(void, copy, (const char* str), {
-  Asyncify.handleAsync(async() = > {
+  Asyncify.handleAsync(async() => {
     document.getElementById("clipping").focus();
     const rtn = await navigator.clipboard.writeText(UTF8ToString(str));
     document.getElementById("canvas").focus();
@@ -106,7 +106,7 @@ EM_JS(void, copy, (const char* str), {
 });
 
 EM_JS(char*, paste, (), {
-  return Asyncify.handleAsync(async() = > {
+  return Asyncify.handleAsync(async() => {
     document.getElementById("clipping").focus();
     const str = await navigator.clipboard.readText();
     document.getElementById("canvas").focus();
