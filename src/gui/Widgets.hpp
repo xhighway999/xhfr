@@ -24,6 +24,10 @@ struct InputTextCallback_UserData {
   void* ChainCallbackUserData;
 };
 
+void Link(const char* linkText,
+          const char* link = nullptr,
+          ImColor color = ImColor(0, 0, 255));
+
 bool InputText(const char* label,
                std::string& strRef,
                ImGuiInputTextFlags flags = 0,

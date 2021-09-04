@@ -1,4 +1,5 @@
 #include "Widgets.hpp"
+#include "../core/compat.hpp"
 
 void ImGui::AutoPlot(const char* label,
                      float* newValue,
@@ -83,4 +84,23 @@ bool ImGui::InputTextMultiline(const char* label,
   cb_user_data.ChainCallbackUserData = user_data;
   return InputTextMultiline(label, (char*)str->c_str(), str->capacity() + 1,
                             size, flags, InputTextCallback, &cb_user_data);
+}
+
+void ImGui::Link(const char* linkText, const char* link, ImColor color) {
+  auto pos = ImGui::GetCursorScreenPos();
+  // https://github.com/xhighway999/luapad
+
+  if (link == nullptr) {
+    link = linkText;
+  }
+
+  auto size = ImGui::CalcTextSize(linkText);
+  ImGui::TextColored(color, linkText);
+  auto draw_list = ImGui::GetWindowDrawList();
+  pos.y += ImGui::GetTextLineHeight();
+  pos.y += 3;
+  draw_list->AddLine(pos, ImVec2(pos.x + size.x, pos.y), color, 1);
+  if (ImGui::IsItemClicked()) {
+    xhfr::openURL(link);
+  }
 }
