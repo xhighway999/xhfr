@@ -43,3 +43,7 @@ void xhfr::Window::setFlag(ImGuiWindowFlags flag, bool enabled) {
 void xhfr::Window::destroy() {
   destroyWindow = true;
 }
+
+void xhfr::Window::hideCloseButton(bool newHideCloseButton) {
+  hideCloseButtonState = newHideCloseButton;
+}

@@ -68,6 +68,7 @@
 // SDL
 // (the multi-viewports feature requires SDL features supported from SDL 2.0.4+.
 // SDL 2.0.5+ is highly recommended)
+#include <emscripten.h>
 #include "SDL.h"
 #include "SDL_syswm.h"
 #if defined(__APPLE__)
@@ -90,22 +91,38 @@ static SDL_Window* g_Window = NULL;
 static Uint64 g_Time = 0;
 static bool g_MousePressed[3] = {false, false, false};
 static SDL_Cursor* g_MouseCursors[ImGuiMouseCursor_COUNT] = {0};
-static char* g_ClipboardTextData = NULL;
 
 // Forward Declarations
 static void ImGui_ImplSDL2_InitPlatformInterface(SDL_Window* window,
                                                  void* sdl_gl_context);
 static void ImGui_ImplSDL2_ShutdownPlatformInterface();
 
+EM_JS(void, copy, (const char* str), {
+  Asyncify.handleAsync(async() = > {
+    document.getElementById("clipping").focus();
+    const rtn = await navigator.clipboard.writeText(UTF8ToString(str));
+    document.getElementById("canvas").focus();
+  });
+});
+
+EM_JS(char*, paste, (), {
+  return Asyncify.handleAsync(async() = > {
+    document.getElementById("clipping").focus();
+    const str = await navigator.clipboard.readText();
+    document.getElementById("canvas").focus();
+    const size = lengthBytesUTF8(str) + 1;
+    const rtn = _malloc(size);
+    stringToUTF8(str, rtn, size);
+    return rtn;
+  });
+});
+
 static const char* ImGui_ImplSDL2_GetClipboardText(void*) {
-  if (g_ClipboardTextData)
-    SDL_free(g_ClipboardTextData);
-  g_ClipboardTextData = SDL_GetClipboardText();
-  return g_ClipboardTextData;
+  return paste();
 }
 
 static void ImGui_ImplSDL2_SetClipboardText(void*, const char* text) {
-  SDL_SetClipboardText(text);
+  copy(text);
 }
 
 // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if
@@ -268,11 +285,6 @@ bool ImGui_ImplSDL2_InitForVulkan(SDL_Window* window) {
 void ImGui_ImplSDL2_Shutdown() {
   ImGui_ImplSDL2_ShutdownPlatformInterface();
   g_Window = NULL;
-
-  // Destroy last known clipboard data
-  if (g_ClipboardTextData)
-    SDL_free(g_ClipboardTextData);
-  g_ClipboardTextData = NULL;
 
   // Destroy SDL mouse cursors
   for (ImGuiMouseCursor cursor_n = 0; cursor_n < ImGuiMouseCursor_COUNT;

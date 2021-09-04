@@ -29,13 +29,16 @@ class Window {
   void destroy();
   virtual void onDrop(DropEvent) {}
 
- protected:
   void setFlag(ImGuiWindowFlags flag, bool enabled = true);
+  void hideCloseButton(bool newHideCloseButton);
+
+ protected:
   ImGuiWindowFlags windowFlags = 0;
 
  private:
   bool destroyWindow = false;
   bool visible = false;
+  bool hideCloseButtonState = false;
   std::string windowTitle = "";
   std::map<ImGuiCol, ImVec4> styleSheet;
 };

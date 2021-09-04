@@ -9,8 +9,7 @@ const char* glsl_version = "#version 100";
 
 bool backend_init(const char* appName, int w, int h) {
   // Setup SDL
-  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) !=
-      0) {
+  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) != 0) {
     printf("Error: %s\n", SDL_GetError());
     return -1;
   }
@@ -32,8 +31,9 @@ bool backend_init(const char* appName, int w, int h) {
   SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
   SDL_DisplayMode current;
   SDL_GetCurrentDisplayMode(0, &current);
-  SDL_WindowFlags window_flags = (SDL_WindowFlags)(
-      SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
+  SDL_WindowFlags window_flags =
+      (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE |
+                        SDL_WINDOW_ALLOW_HIGHDPI);
   g_Window = SDL_CreateWindow(appName, SDL_WINDOWPOS_CENTERED,
                               SDL_WINDOWPOS_CENTERED, 1280, 720, window_flags);
   g_GLContext = SDL_GL_CreateContext(g_Window);

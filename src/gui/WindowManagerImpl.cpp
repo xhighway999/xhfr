@@ -33,7 +33,12 @@ void xhfr::WindowManagerImpl::manageWindows() {
       ImGui::PushStyleColor(pair.first, pair.second);
     }
 
-    if (ImGui::Begin(window->getTitle().c_str(), &open, window->getFlags())) {
+    bool* openPtr = &open;
+    if (window->hideCloseButtonState) {
+      openPtr = nullptr;
+    }
+
+    if (ImGui::Begin(window->getTitle().c_str(), openPtr, window->getFlags())) {
       if (!open) {
         window->destroyWindow = true;
       }

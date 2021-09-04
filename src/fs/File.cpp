@@ -41,7 +41,7 @@ bool File::open(std::string_view path, bool write) {
     rewind(file);
   }
   if (!file) {
-      XHFR_ERROR("Could not open real file {}", path);
+    XHFR_ERROR("Could not open real file {}", path);
   }
   return file;
 }
