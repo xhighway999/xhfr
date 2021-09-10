@@ -56,14 +56,15 @@ bool Image::loadImageFromFile(const char* path) {
 }
 
 bool Image::loadImageFromMemory(const char* data, unsigned size) {
+
   stbi_uc* imgdata = stbi_load_from_memory((const unsigned char*)data, size, &x,
-                                           &y, &channels, 3);
+                                           &y, &channels, 4);
 
   if (!imgdata) {
     XHFR_ERROR(stbi_failure_reason());
     return false;
   }
-  loadImageFromRaw(imgdata, x, y, channels);
+  loadImageFromRaw(imgdata, x, y, 4);
   stbi_image_free(imgdata);
   return true;
 }
