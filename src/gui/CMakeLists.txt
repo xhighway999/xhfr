@@ -25,6 +25,8 @@ add_library(gui STATIC
     DropEvent.hpp
     Canvas.hpp
     Canvas.cpp
+    Styles.hpp
+    Styles.cpp
     ${IMGUI_FREETYPE}
 )
 
