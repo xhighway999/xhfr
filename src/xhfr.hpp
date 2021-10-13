@@ -10,6 +10,7 @@
 #include "gui/Dockspace.hpp"
 #include "gui/Fonts.hpp"
 #include "gui/Image.hpp"
+#include "gui/Styles.hpp"
 #include "gui/Widgets.hpp"
 #include "gui/Window.hpp"
 #include "gui/WindowManagerBase.hpp"
