@@ -1,7 +1,16 @@
 #include "xhfr.hpp"
 
 #ifdef __EMSCRIPTEN__
+#include <iostream>
+int mainLoopExecutionDelay = 10;  // about 1/6 of a second
+// incredibly quick and dirty hack to ensure that the persistent filesystem is
+// loaded
 void emscripten_main_loop(void* arg) {
+  if (mainLoopExecutionDelay > 0) {
+    std::cout << mainLoopExecutionDelay << std::endl;
+    mainLoopExecutionDelay--;
+    return;
+  }
   xhfr::new_frame();
 }
 
