@@ -8,6 +8,7 @@
 #include "fs/fs.hpp"
 #include "gui/Canvas.hpp"
 #include "gui/Dockspace.hpp"
+#include "gui/FileDialog.hpp"
 #include "gui/Fonts.hpp"
 #include "gui/Image.hpp"
 #include "gui/Styles.hpp"

@@ -17,6 +17,8 @@ add_library(gui STATIC
     Widgets.cpp
     Window.hpp
     Window.cpp
+    FileDialog.hpp
+    FileDialog.cpp
     WindowManagerBase.hpp
     WindowManagerImpl.hpp
     WindowManagerImpl.cpp
@@ -36,4 +38,4 @@ if(${xhfr_FreeType})
 endif()
 
 
-target_link_libraries(gui imgui fs stb backend widgets nanovg-nanort)
+target_link_libraries(gui imgui fs stb backend widgets nanovg-nanort nfd)

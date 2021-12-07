@@ -49,3 +49,5 @@ else()
     add_subdirectory(glad)
     add_subdirectory(glfw)
 endif()
+
+add_subdirectory(nativefiledialog-extended)

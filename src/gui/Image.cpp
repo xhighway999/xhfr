@@ -57,7 +57,7 @@ bool Image::loadImageFromFile(const char* path) {
 
 bool Image::loadImageFromMemory(const char* data, unsigned size) {
   stbi_uc* imgdata = stbi_load_from_memory((const unsigned char*)data, size, &x,
-                                           &y, &channels, 3);
+                                           &y, &channels, 4);
 
   if (!imgdata) {
     XHFR_ERROR(stbi_failure_reason());
@@ -128,6 +128,7 @@ void Image::loadImageFromRaw(const unsigned char* data,
   glGenerateMipmap(GL_TEXTURE_2D);
   x = w;
   y = h;
+  this->channels = channels;
 }
 
 void Image::loadImageFromRaw(int w,
