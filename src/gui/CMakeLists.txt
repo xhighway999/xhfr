@@ -8,6 +8,13 @@ if(${xhfr_FreeType})
     set(IMGUI_FREETYPE imgui_freetype.h imgui_freetype.cpp)
 endif()
 
+
+if(${xhfr_canvas})
+     set(XHFR_CANVAS Canvas.hpp Canvas.cpp)
+endif()
+
+
+
 add_library(gui STATIC
     Dockspace.hpp
     Dockspace.cpp
@@ -25,11 +32,10 @@ add_library(gui STATIC
     Fonts.hpp
     Fonts.cpp
     DropEvent.hpp
-    Canvas.hpp
-    Canvas.cpp
     Styles.hpp
     Styles.cpp
     ${IMGUI_FREETYPE}
+    ${XHFR_CANVAS}
 )
 
 if(${xhfr_FreeType})
@@ -37,5 +43,9 @@ if(${xhfr_FreeType})
     target_link_libraries(gui freetype)
 endif()
 
+if(${xhfr_canvas})
+    target_link_libraries(gui nanovg-nanort)
+endif()
 
-target_link_libraries(gui imgui fs stb backend widgets nanovg-nanort nfd)
+
+target_link_libraries(gui imgui fs stb backend widgets nfd)

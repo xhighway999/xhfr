@@ -9,6 +9,9 @@ if(${xhfr_audio})
     add_subdirectory(audio)
 endif()
 
+if(${xhfr_canvas})
+    target_compile_definitions(xhfr PUBLIC XHFR_CANVAS)
+endif()
 
 add_subdirectory(core)
 

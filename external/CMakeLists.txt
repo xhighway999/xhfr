@@ -4,7 +4,11 @@ cmake_minimum_required(VERSION 3.14.5)
 
 include(cmakescripts/imgui.cmake)
 include(cmakescripts/glfw.cmake)
-include(cmakescripts/nanovg-nanort.cmake)
+
+if(${xhfr_canvas})
+    include(cmakescripts/nanovg-nanort.cmake)
+endif()
+
 
 if(NOT ${xhfr_spdlog_external})
     add_subdirectory(spdlog)

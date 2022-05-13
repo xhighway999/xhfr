@@ -6,7 +6,9 @@
 #include "core/debug.hpp"
 
 #include "fs/fs.hpp"
+#ifdef XHFR_CANVAS
 #include "gui/Canvas.hpp"
+#endif
 #include "gui/Dockspace.hpp"
 #include "gui/FileDialog.hpp"
 #include "gui/Fonts.hpp"

@@ -9,6 +9,7 @@ option(xhfr_stb_external "Use System/Parent stb library" OFF)
 option(xhfr_spdlog_external "Use System/Parent spdlog library" OFF)
 option(xhfr_json_external "Use System/Parent json library" ON)
 option(xhfr_audio "Build xhfr audio module" ON)
+option(xhfr_canvas "Build xhfr canvas module" ON)
 
 set(xhfr_trs_search_path "${CMAKE_CURRENT_SOURCE_DIR}/../" CACHE STRING "trs search path")
 set(xhfr_trs_output_path "${CMAKE_CURRENT_SOURCE_DIR}/../data.c" CACHE STRING "trs output path")
