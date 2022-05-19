@@ -135,7 +135,7 @@ int Bezier(const char* label, float P[], int flags) {
   Dummy(ImVec2(0, 3));
 
   // prepare canvas
-  const float avail = GetContentRegionAvailWidth();
+  const float avail = GetContentRegionAvail().x;
   const float dim = AREA_WIDTH > 0 ? AREA_WIDTH : avail;
   ImVec2 Canvas(dim, dim);
 
