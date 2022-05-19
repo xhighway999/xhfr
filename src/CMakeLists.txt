@@ -9,9 +9,6 @@ if(${xhfr_audio})
     add_subdirectory(audio)
 endif()
 
-if(${xhfr_canvas})
-    target_compile_definitions(xhfr PUBLIC XHFR_CANVAS)
-endif()
 
 add_subdirectory(core)
 
@@ -23,6 +20,12 @@ add_library(xhfr STATIC
 
 
 target_link_libraries(xhfr PUBLIC imgui stb gui backend fs xhfr_core spdlog)
+
+if(${xhfr_canvas})
+    target_compile_definitions(xhfr PUBLIC XHFR_CANVAS)
+endif()
+
+
 target_include_directories(xhfr INTERFACE ../src)
 
 target_include_directories(xhfr PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
