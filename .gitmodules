@@ -5,10 +5,6 @@
 [submodule "external/sol2"]
 	path = external/sol2
 	url = https://github.com/ThePhD/sol2.git
-[submodule "external/luajit"]
-	path = external/luajit
-	url = http://luajit.org/git/luajit-2.0.git
-	branch = v.2.1
 [submodule "external/glfw"]
 	path = external/glfw
 	url = https://github.com/glfw/glfw.git
@@ -21,12 +17,10 @@
 [submodule "external/sdl"]
 	path = external/sdl
 	url = https://github.com/spurious/SDL-mirror.git
-[submodule "external/lua/src"]
-	path = external/lua/src
-	url = https://github.com/lua/lua.git
 [submodule "external/physfs"]
 	path = external/physfs
 	url = https://github.com/criptych/physfs.git
+	branch = main
 [submodule "external/freetype"]
 	path = external/freetype
 	url = https://github.com/winlibs/freetype.git
