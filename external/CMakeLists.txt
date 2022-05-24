@@ -55,3 +55,4 @@ else()
 endif()
 
 add_subdirectory(nativefiledialog-extended)
+add_subdirectory(clip)

@@ -15,6 +15,7 @@
 #include "gui/Image.hpp"
 #include "gui/Styles.hpp"
 #include "gui/Widgets.hpp"
+#include "gui/Clipboard.hpp"
 #include "gui/Window.hpp"
 #include "gui/WindowManagerBase.hpp"
 #include "gui/WindowManagerImpl.hpp"

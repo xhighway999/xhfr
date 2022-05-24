@@ -8,7 +8,6 @@
 [submodule "external/luajit"]
 	path = external/luajit
 	url = http://luajit.org/git/luajit-2.0.git
-	branch = v.2.1
 [submodule "external/glfw"]
 	path = external/glfw
 	url = https://github.com/glfw/glfw.git
@@ -27,6 +26,7 @@
 [submodule "external/physfs"]
 	path = external/physfs
 	url = https://github.com/criptych/physfs.git
+	branch = main
 [submodule "external/freetype"]
 	path = external/freetype
 	url = https://github.com/winlibs/freetype.git
@@ -49,3 +49,6 @@
 [submodule "external/nativefiledialog-extended"]
 	path = external/nativefiledialog-extended
 	url = https://github.com/btzy/nativefiledialog-extended.git
+[submodule "external/clip"]
+	path = external/clip
+	url = git@github.com:dacap/clip.git

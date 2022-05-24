@@ -34,6 +34,8 @@ add_library(gui STATIC
     DropEvent.hpp
     Styles.hpp
     Styles.cpp
+    Clipboard.hpp
+    Clipboard.cpp
     ${IMGUI_FREETYPE}
     ${XHFR_CANVAS}
 )
@@ -48,4 +50,4 @@ if(${xhfr_canvas})
 endif()
 
 
-target_link_libraries(gui imgui fs stb backend widgets nfd)
+target_link_libraries(gui imgui fs stb backend widgets nfd clip)
