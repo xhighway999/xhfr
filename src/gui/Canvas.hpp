@@ -78,7 +78,7 @@ class Canvas {
       const ImVec2& p_max,
       ImU32 col,
       float rounding = 0.0f,
-      ImDrawCornerFlags rounding_corners = ImDrawCornerFlags_All,
+      ImDrawFlags rounding_corners = ImDrawFlags_RoundCornersAll,
       float thickness = 1.0f);  // a: upper-left, b: lower-right (== upper-left
                                 // + size), rounding_corners_flags: 4 bits
                                 // corresponding to which corner to round
@@ -87,8 +87,8 @@ class Canvas {
       const ImVec2& p_max,
       ImU32 col,
       float rounding = 0.0f,
-      ImDrawCornerFlags rounding_corners =
-          ImDrawCornerFlags_All);  // a: upper-left, b: lower-right (==
+      ImDrawFlags rounding_corners =
+          ImDrawFlags_RoundCornersAll);  // a: upper-left, b: lower-right (==
                                    // upper-left + size)
   void AddRectFilledMultiColor(const ImVec2& p_min,
                                const ImVec2& p_max,

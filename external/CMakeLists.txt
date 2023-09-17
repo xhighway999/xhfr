@@ -11,6 +11,7 @@ endif()
 
 
 if(NOT ${xhfr_spdlog_external})
+    message(FATAL_ERROR "blah")
     add_subdirectory(spdlog)
 endif()
 
@@ -27,6 +28,7 @@ endif()
 if(NOT ${xhfr_PhysFs_external})
     #stop physfs conflicting with glfw
     set(PHYSFS_TARGETNAME_DOCS "physfs_docs" CACHE STRING "physfs_docs" )
+    set(PHYSFS_TARGETNAME_UNINSTALL "physfs_uninstall" CACHE STRING "physfs_uninstall" )
     add_subdirectory(physfs)
 endif()
 if(${xhfr_FreeType})

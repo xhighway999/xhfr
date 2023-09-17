@@ -1,5 +1,6 @@
 #include "Widgets.hpp"
 #include "../core/compat.hpp"
+#include "imgui_internal.h"
 
 void ImGui::AutoPlot(const char* label,
                      float* newValue,

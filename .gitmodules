@@ -11,6 +11,7 @@
 [submodule "external/glad"]
 	path = external/glad
 	url = https://github.com/Dav1dde/glad.git
+	branch = master
 [submodule "external/stb/stb"]
 	path = external/stb/stb
 	url = https://github.com/nothings/stb.git

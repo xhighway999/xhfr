@@ -73,7 +73,7 @@ void Canvas::AddRect(const ImVec2& p_min,
                      const ImVec2& p_max,
                      ImU32 col,
                      float rounding,
-                     ImDrawCornerFlags rounding_corners,
+                     ImDrawFlags rounding_corners,
                      float thickness) {
   nvgBeginPath(vg);
   Vector a = p_min, b = p_max;
@@ -92,7 +92,7 @@ void Canvas::AddRectFilled(const ImVec2& p_min,
                            const ImVec2& p_max,
                            ImU32 col,
                            float rounding,
-                           ImDrawCornerFlags rounding_corners) {
+                           ImDrawFlags rounding_corners) {
   nvgBeginPath(vg);
   Vector a = p_min, b = p_max;
   a *= scaleFactor;
