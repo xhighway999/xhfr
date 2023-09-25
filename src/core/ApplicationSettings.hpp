@@ -39,11 +39,8 @@ class ApplicationSettings {
       json[ptr] = defaultValue;
       save();
 
-      XHFR_DEBUG("Key \"{}\" not found. Creating new Key. Value: \"{}\'", s,
-                 (T)json[ptr]);
       return defaultValue;
     }
-    XHFR_DEBUG("Key \"{}\" was read. Value: \"{}\'", s, (T)json[ptr]);
     return json[ptr];
   }
 
