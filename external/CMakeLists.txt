@@ -11,7 +11,6 @@ endif()
 
 
 if(NOT ${xhfr_spdlog_external})
-    message(FATAL_ERROR "blah")
     add_subdirectory(spdlog)
 endif()
 
