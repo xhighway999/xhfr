@@ -1,6 +1,6 @@
 project(xhfr)
 
-set (CMAKE_CXX_STANDARD 17)
+set (CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(gui)
 add_subdirectory(fs)

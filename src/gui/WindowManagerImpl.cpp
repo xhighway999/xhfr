@@ -1,5 +1,5 @@
 #include "WindowManagerImpl.hpp"
-
+#include <algorithm>
 void xhfr::WindowManagerImpl::addWindow(xhfr::Window* window) {
   windows.push_back(window);
 }
